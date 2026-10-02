@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free must-have → evidence keyword mapper — client-side only</title>
+  <meta name="description" content="List must-have keywords from a job post and map each to an evidence bullet from your resume. Browser-only. No upload." />
+  <style>
+    :root{--bg:#07090f;--card:#121826;--line:rgba(255,255,255,.1);--text:#e8eefc;--muted:#9aa8c7;--ok:#5eead4;--miss:#fbbf24;--accent:#7c9cff}
+    *{box-sizing:border-box} body{margin:0;font-family:Segoe UI,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+    .wrap{max-width:960px;margin:0 auto;padding:1.5rem 1.25rem 4rem}
+    a{color:var(--accent)} .muted{color:var(--muted);font-size:.95rem}
+    h1{font-size:clamp(1.5rem,3vw,2rem);margin:.5rem 0 .75rem}
+    label{display:block;font-weight:600;margin:.75rem 0 .35rem}
+    textarea,input{width:100%;padding:.75rem;border-radius:12px;border:1px solid var(--line);background:#0b1020;color:var(--text);font:inherit}
+    textarea{min-height:140px;resize:vertical}
+    .actions{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;margin:1rem 0}
+    button{appearance:none;border:0;cursor:pointer;padding:.75rem 1.2rem;border-radius:999px;background:linear-gradient(135deg,#7c9cff,#5b7cfa);color:#041018;font-weight:700;font:inherit}
+    button.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+    table{width:100%;border-collapse:collapse;margin:1rem 0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+    th,td{padding:.65rem .75rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:.92rem}
+    th{background:#0d1220;color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.04em}
+    .ok{color:var(--ok)} .miss{color:var(--miss)}
+    nav a{margin-right:1rem;color:var(--muted);text-decoration:none}
+    .note{border-left:3px solid var(--accent);padding:.5rem .85rem;background:#0d1220;margin:1rem 0;font-size:.9rem;color:var(--muted)}
+    .stats{color:var(--muted);font-size:.95rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">← Kit home</a>
+      <a href="keyword-highlighter.html">Keyword highlighter</a>
+      <a href="../seo/ats-keywords.html">ATS keywords guide</a>
+    </nav>
+    <h1>Must-have → evidence mapper</h1>
+    <p class="muted">List 6–12 must-have terms from the posting (one per line). Paste your resume. Each term is marked <span class="ok">covered</span> if it appears in the resume, or <span class="miss">gap</span> if not. <strong>Browser only</strong> — no API, no upload.</p>
+    <div class="note">Companion to the highlighter. Mapping ≠ interview guarantee. Do not invent employers or metrics to close a gap.</div>
+
+    <label for="musts">Must-have keywords (one per line)</label>
+    <textarea id="musts" placeholder="Python&#10;PostgreSQL&#10;stakeholder communication&#10;…"></textarea>
+    <label for="resume">Your resume text</label>
+    <textarea id="resume" placeholder="Paste plain-text resume here…"></textarea>
+
+    <div class="actions">
+      <button type="button" id="run">Map keywords</button>
+      <button type="button" class="ghost" id="clear">Clear</button>
+      <span class="stats" id="stats"></span>
+    </div>
+    <table>
+      <thead><tr><th>Must-have</th><th>Status</th><th>Evidence snippet (first hit)</th></tr></thead>
+      <tbody id="tbody"><tr><td colspan="3" class="muted">Run the mapper to see coverage.</td></tr></tbody>
+    </table>
+    <p class="muted">Free magnet · part of ATS Resume Kit · see also <a href="keyword-highlighter.html">JD ↔ resume highlighter</a>.</p>
+  </div>
+  <script>
+  (function(){
+    function norm(s){ return String(s||"").toLowerCase().replace(/\s+/g," ").trim(); }
+    function snippet(hay, needle){
+      var i = hay.toLowerCase().indexOf(needle.toLowerCase());
+      if(i<0) return "";
+      var a=Math.max(0,i-40), b=Math.min(hay.length,i+needle.length+40);
+      return (a>0?"…":"")+hay.slice(a,b).replace(/\s+/g," ")+(b<hay.length?"…":"");
+    }
+    function run(){
+      var musts=document.getElementById("musts").value.split(/\n+/).map(function(l){return l.trim();}).filter(Boolean);
+      var resume=document.getElementById("resume").value||"";
+      var rn=norm(resume);
+      var tb=document.getElementById("tbody"); tb.innerHTML="";
+      var hit=0;
+      musts.forEach(function(m){
+        var n=norm(m); var ok=n.length>=2 && rn.indexOf(n)>=0;
+        if(ok) hit++;
+        var tr=document.createElement("tr");
+        tr.innerHTML="<td>"+esc(m)+"</td><td class='"+(ok?"ok":"miss")+"'>"+(ok?"covered":"gap")+"</td><td class='muted'>"+esc(ok?snippet(resume,m):"—")+"</td>";
+        tb.appendChild(tr);
+      });
+      if(!musts.length){ tb.innerHTML="<tr><td colspan='3' class='muted'>Add at least one must-have.</td></tr>"; }
+      document.getElementById("stats").textContent = musts.length ? (hit+" / "+musts.length+" covered") : "";
+    }
+    function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+    document.getElementById("run").addEventListener("click", run);
+    document.getElementById("clear").addEventListener("click", function(){
+      document.getElementById("musts").value=""; document.getElementById("resume").value="";
+      document.getElementById("tbody").innerHTML="<tr><td colspan='3' class='muted'>Cleared.</td></tr>";
+      document.getElementById("stats").textContent="";
+    });
+  })();
+  </script>
+</body>
+</html>

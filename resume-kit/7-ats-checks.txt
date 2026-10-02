@@ -1,0 +1,17 @@
+7 ATS checks (free) — before you send another application
+
+1. One column for core experience. Two-column layouts reorder in many parsers.
+2. Standard headings (Experience, Education, Skills). Custom headings can drop a whole section.
+3. No critical text inside images or text boxes — parsers read text, not pictures.
+4. Real employers and dates only. A gap reads better than a fabricated role.
+5. Keywords only where you can defend them. Every claim is an interview question.
+6. Export via Print -> Save as PDF, or a clean DOCX. Don't send a design export.
+7. Filename: FirstLast_Role_Resume.pdf. Recruiters download dozens; make yours findable.
+
+That's the whole list — no signup, no email capture.
+
+If you want the templates and the job-paste worksheet, Resume Kit is a one-time $29:
+https://missionwinning.gumroad.com/l/resume-kit
+
+Either way, good luck with the search.
+— Snowden

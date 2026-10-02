@@ -1,0 +1,88 @@
+<style>
+    :root { color-scheme: light; --bg: #f3f0e8; --ink: #1c1915; --muted: #4a453c; --paper: #fffdf8; --line: #d9d1c3; --buy: #1e3a8a; --buy-ink: #ffffff; --focus: #1d4ed8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 "Segoe UI", system-ui, sans-serif; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+    main { max-width: 42rem; margin: 0 auto; padding: 1.25rem 1rem 3rem; }
+    h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.1; margin: 0.8rem 0 0.4rem; }
+    .price { font-size: 1.8rem; font-weight: 700; margin: 0.2rem 0; }
+    .once { color: var(--muted); font-weight: 400; font-size: 1rem; }
+    p { margin: 0.5rem 0; }
+    .buy { display: inline-block; margin: 0.8rem 0 0.4rem; background: var(--buy); color: var(--buy-ink); text-decoration: none; font-weight: 700; padding: 0.8rem 1.1rem; }
+    h2 { font-size: 1.15rem; margin: 1.6rem 0 0.4rem; }
+    ul { margin: 0.3rem 0 0; padding-left: 1.2rem; }
+    li { margin: 0.25rem 0; }
+    code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.92em; }
+    table { width: 100%; border-collapse: collapse; background: var(--paper); }
+    th, td { text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); padding: 0.45rem 0.4rem; }
+    th { font-size: 0.85rem; color: var(--muted); font-weight: 650; }
+    .note { color: var(--muted); }
+    footer { margin-top: 1.6rem; color: var(--muted); }
+    .hero { margin: 0 0 0.6rem; }
+    .hero img { display: block; width: 100%; height: auto; border: 1px solid var(--line); background: var(--paper); }
+    @media (max-width: 640px) {
+      .buy { display: block; text-align: center; }
+    }
+  </style>
+
+  <main>
+    <p class="hero"><img src="https://public-files.gumroad.com/t8h8cxxeuc0gl9cu9aery0z5mqtb" width="1280" height="720" alt="Resume Kit — one-page resume preview" /></p>
+    <h1 data-gumroad-field="name">Resume Kit</h1>
+    <p class="price"><span data-gumroad-field="price">$29</span> <span class="once">one-time</span></p>
+    <p>A zip of resume files you edit yourself. Not a review service, not a subscription, and not a job offer.</p>
+    <p id="buy"><a class="buy" data-gumroad-action="buy" href="https://missionwinning.gumroad.com/l/resume-kit" target="_blank" rel="noopener">Buy Resume Kit</a></p>
+
+    <h2>Filled example in the zip</h2>
+    <p class="note">Fictional. <code>example-alex-fictional.html</code>. Alex Example is not a real person.</p>
+
+    <h2>Files in the zip</h2>
+    <table>
+      <thead>
+        <tr>
+<th scope="col">File</th>
+<th scope="col">What you do</th>
+</tr>
+      </thead>
+      <tbody>
+        <tr>
+<td><code>resume-classic.html</code></td>
+<td>Open in a browser. Replace the brackets. Print to PDF.</td>
+</tr>
+        <tr>
+<td><code>resume-modern.html</code></td>
+<td>Same steps. Different layout.</td>
+</tr>
+        <tr>
+<td><code>resume-compact.html</code></td>
+<td>Same steps. Tighter spacing.</td>
+</tr>
+        <tr>
+<td><code>cover-letter.html</code></td>
+<td>Open, replace the brackets, print.</td>
+</tr>
+        <tr>
+<td><code>job-posting-worksheet.md</code></td>
+<td>Paste one posting. Leave a row blank if you have no evidence.</td>
+</tr>
+        <tr>
+<td><code>honesty-checklist.md</code></td>
+<td>Do not invent employers, dates, or metrics.</td>
+</tr>
+        <tr>
+<td><code>example-alex-fictional.html</code></td>
+<td>Filled example. Fictional. Do not send it.</td>
+</tr>
+        <tr>
+<td><code>README.md</code></td>
+<td>File list and how to print.</td>
+</tr>
+      </tbody>
+    </table>
+    <p>No coaching. The honesty checklist tells you not to invent an employer, a date, or a metric.</p>
+    <footer>
+      <a href="https://missionwinning.gumroad.com/l/invoice-lite">Invoice Lite</a>
+      <span> · template pack, not a service</span>
+    </footer>
+  </main>
+

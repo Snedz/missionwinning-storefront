@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content="Paste a job description and resume — see overlapping keywords in-browser. Nothing uploaded."/>
+<title>Keyword overlap — Resume Kit free tool</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:960px;margin:1.5rem auto;padding:0 1rem;line-height:1.45;color:#111}
+textarea{width:100%;min-height:160px;font:inherit;padding:.6rem;border-radius:8px;border:1px solid #ccc}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+button{background:#0f766e;color:#fff;border:0;padding:.7rem 1rem;border-radius:10px;font-weight:700;cursor:pointer}
+.mut{color:#555;font-size:.9rem}
+.chip{display:inline-block;margin:.2rem;padding:.2rem .5rem;border-radius:999px;background:#ecfdf5;border:1px solid #99f6e4;font-size:.85rem}
+.miss{background:#fff7ed;border-color:#fed7aa}
+mark{background:#fef08a}
+a{color:#0e7490}
+</style></head><body>
+<p class="mut"><a href="../index.html">← Resume Kit</a></p>
+<h1>Keyword overlap (local)</h1>
+<p class="mut">Runs only in your browser. We do not invent skills — only show tokens present in <em>both</em> boxes.</p>
+<div class="grid">
+<div><label><strong>Job description</strong><textarea id="jd" placeholder="Paste JD…"></textarea></label></div>
+<div><label><strong>Your resume text</strong><textarea id="cv" placeholder="Paste resume plain text…"></textarea></label></div>
+</div>
+<p><button type="button" id="go">Find overlaps</button></p>
+<h2>In both</h2><div id="both"></div>
+<h2>In JD only (consider if true)</h2><div id="miss"></div>
+<script>
+const stop=new Set(('a an the and or of to for with in on at by from as is are was were be been being it this that these those you your we our they their i me my'.split(' ')));
+function toks(s){
+  return [...new Set((s||'').toLowerCase().match(/[a-z][a-z0-9+.#-]{1,}/g)||[])]
+    .filter(t=>t.length>2 && !stop.has(t));
+}
+document.getElementById('go').onclick=()=>{
+  const j=new Set(toks(jd.value)), c=new Set(toks(cv.value));
+  const both=[...j].filter(t=>c.has(t)).sort();
+  const miss=[...j].filter(t=>!c.has(t)).sort().slice(0,80);
+  bothEl=document.getElementById('both'); missEl=document.getElementById('miss');
+  bothEl.innerHTML=both.length?both.map(t=>`<span class="chip">${t}</span>`).join(''):'<p class="mut">None yet.</p>';
+  missEl.innerHTML=miss.length?miss.map(t=>`<span class="chip miss">${t}</span>`).join(''):'<p class="mut">None.</p>';
+};
+</script>
+</body></html>

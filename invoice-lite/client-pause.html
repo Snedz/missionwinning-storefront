@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Client pause notice — Invoice Lite</title>
+  <meta name="description" content="Stub for a work-pause note if an invoice is unpaid past N days. Not a contract, not a payment link, not collections." />
+  <meta name="robots" content="noindex" />
+  <style>
+    :root{--bg:#07090f;--text:#e8eefc;--muted:#9aa8c7;--accent:#5eead4;--line:rgba(255,255,255,.08)}
+    body{margin:0;font-family:Segoe UI,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+    .wrap{max-width:720px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+    h1{font-size:clamp(1.6rem,3vw,2.1rem);margin:0 0 .75rem}
+    .muted{color:var(--muted)}
+    a{color:var(--accent)}
+    .card{background:#121826;border:1px solid var(--line);border-radius:16px;padding:1.1rem 1.25rem;margin:1.25rem 0}
+    label{display:block;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-top:.8rem}
+    input{width:100%;box-sizing:border-box;margin-top:.25rem;padding:.55rem .65rem;border-radius:8px;border:1px solid var(--line);background:#0c1018;color:var(--text);font:inherit}
+    ol{padding-left:1.2rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="muted"><a href="index.html">← Invoice Lite</a></p>
+    <h1>Client pause notice</h1>
+    <p class="muted">Stub only. Work pauses if an invoice you already issued is unpaid past N days. This page is not a contract, not legal advice, not a termination, and not a collections letter. It does not know your balances.</p>
+    <div class="card">
+      <p><strong>Fill these in yourself</strong></p>
+      <label for="n">N (days past due)</label>
+      <input id="n" placeholder="You choose N — this page does not">
+      <label for="inv">Invoice number</label>
+      <input id="inv" placeholder="From your ledger">
+      <label for="start">Pause start date</label>
+      <input id="start" type="date">
+      <p class="muted">New work named in your note stops on that date. Files already delivered stay delivered. Resume when you record payment — or say a narrower condition you actually mean.</p>
+    </div>
+    <div class="card">
+      <ol>
+        <li>Confirm the invoice is unpaid in your own records.</li>
+        <li>Use N only if the client already agreed, or say that N is a new condition and wait.</li>
+        <li>Copy the longer blanks in <code>templates/client_pause_notice.md</code> if you want a sendable note. Edit it. Do not attach this webpage.</li>
+      </ol>
+      <p class="muted">No payment link is embedded on this page. Checkout is available on the main product page.</p>
+    </div>
+  </div>
+</body>
+</html>

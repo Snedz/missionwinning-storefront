@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Job application tracker | ATS Resume Kit</title>
+  <meta name="description" content="A plain, static job application tracker for company, role, sent date, and follow-up date.">
+  <style>
+    :root { color-scheme: light; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { margin: 0; background: #f6f7fb; color: #172033; line-height: 1.5; }
+    main { max-width: 980px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+    a { color: #2457a6; }
+    .muted { color: #56627a; }
+    .table-wrap { overflow-x: auto; background: #fff; border: 1px solid #d8deea; border-radius: 10px; }
+    table { width: 100%; min-width: 680px; border-collapse: collapse; }
+    th, td { padding: .75rem; border-bottom: 1px solid #e5e8ef; text-align: left; vertical-align: top; }
+    th { background: #eef2f8; font-size: .9rem; }
+    tr:last-child td { border-bottom: 0; }
+    input { width: 100%; box-sizing: border-box; padding: .6rem; border: 1px solid #b9c3d5; border-radius: 6px; font: inherit; }
+    input:focus { outline: 2px solid #9bb8e8; outline-offset: 1px; }
+    .note { margin-top: 1rem; padding: .8rem 1rem; background: #fff8df; border-left: 4px solid #d9a400; }
+  </style>
+</head>
+<body>
+  <main>
+    <p><a href="index.html">← Back to the SEO hub</a></p>
+    <h1>Job application tracker</h1>
+    <p class="muted">Use one row per application. Keep company, role, date sent, and follow-up date together.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col">Company</th><th scope="col">Role</th><th scope="col">Date sent</th><th scope="col">Follow-up date</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><input type="text" aria-label="Company, row 1"></td><td><input type="text" aria-label="Role, row 1"></td><td><input type="date" aria-label="Date sent, row 1"></td><td><input type="date" aria-label="Follow-up date, row 1"></td></tr>
+          <tr><td><input type="text" aria-label="Company, row 2"></td><td><input type="text" aria-label="Role, row 2"></td><td><input type="date" aria-label="Date sent, row 2"></td><td><input type="date" aria-label="Follow-up date, row 2"></td></tr>
+          <tr><td><input type="text" aria-label="Company, row 3"></td><td><input type="text" aria-label="Role, row 3"></td><td><input type="date" aria-label="Date sent, row 3"></td><td><input type="date" aria-label="Follow-up date, row 3"></td></tr>
+          <tr><td><input type="text" aria-label="Company, row 4"></td><td><input type="text" aria-label="Role, row 4"></td><td><input type="date" aria-label="Date sent, row 4"></td><td><input type="date" aria-label="Follow-up date, row 4"></td></tr>
+          <tr><td><input type="text" aria-label="Company, row 5"></td><td><input type="text" aria-label="Role, row 5"></td><td><input type="date" aria-label="Date sent, row 5"></td><td><input type="date" aria-label="Follow-up date, row 5"></td></tr>
+          <tr><td><input type="text" aria-label="Company, row 6"></td><td><input type="text" aria-label="Role, row 6"></td><td><input type="date" aria-label="Date sent, row 6"></td><td><input type="date" aria-label="Follow-up date, row 6"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note"><strong>Static worksheet:</strong> this page has no backend and does not save entries. Export or copy your notes before closing the page.</p>
+  </main>
+</body>
+</html>

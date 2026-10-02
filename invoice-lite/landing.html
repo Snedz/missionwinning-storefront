@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&amp;family=Outfit:wght@400;500;650&amp;display=swap" />
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #efe6d4;
+      --bg-2: #e4d8c0;
+      --ink: #1c1612;
+      --muted: #5c5146;
+      --paper: #fffaf2;
+      --line: #d9cbb4;
+      --stamp: #9d2c2c;
+      --stamp-ink: #fff6f1;
+      --moss: #1f4d40;
+      --moss-ink: #f3fff9;
+      --shadow: 0 18px 50px rgba(48, 32, 14, 0.12);
+      --focus: #1d4ed8;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        color-scheme: dark;
+        --bg: #12100e;
+        --bg-2: #1a1714;
+        --ink: #f6efe4;
+        --muted: #cbbba6;
+        --paper: #221e1a;
+        --line: #3d342c;
+        --stamp: #e07a5f;
+        --stamp-ink: #2a1210;
+        --moss: #8fbfa8;
+        --moss-ink: #10211b;
+        --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+        --focus: #93c5fd;
+      }
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #12100e;
+      --bg-2: #1a1714;
+      --ink: #f6efe4;
+      --muted: #cbbba6;
+      --paper: #221e1a;
+      --line: #3d342c;
+      --stamp: #e07a5f;
+      --stamp-ink: #2a1210;
+      --moss: #8fbfa8;
+      --moss-ink: #10211b;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      --focus: #93c5fd;
+    }
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --bg: #efe6d4;
+      --bg-2: #e4d8c0;
+      --ink: #1c1612;
+      --muted: #5c5146;
+      --paper: #fffaf2;
+      --line: #d9cbb4;
+      --stamp: #9d2c2c;
+      --stamp-ink: #fff6f1;
+      --moss: #1f4d40;
+      --moss-ink: #f3fff9;
+      --shadow: 0 18px 50px rgba(48, 32, 14, 0.12);
+      --focus: #1d4ed8;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Outfit, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(1200px 500px at 10% -10%, rgba(157, 44, 44, 0.08), transparent 50%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+    .skip {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 0.6rem 0.9rem;
+      z-index: 20;
+    }
+    .skip:focus { top: 1rem; }
+    .top {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 1.25rem;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid transparent;
+    }
+    .top.scrolled { border-bottom-color: var(--line); }
+    .brand {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .top-actions { display: flex; align-items: center; gap: 0.6rem; }
+    .ghost, .buy, .text-btn {
+      font: inherit;
+      cursor: pointer;
+      border-radius: 999px;
+    }
+    .ghost, .text-btn {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      padding: 0.45rem 0.8rem;
+    }
+    .buy {
+      border: 0;
+      background: var(--stamp);
+      color: var(--stamp-ink);
+      font-weight: 650;
+      padding: 0.85rem 1.25rem;
+    }
+    .buy:hover { filter: brightness(1.06); }
+    .buy.small { padding: 0.55rem 0.95rem; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 1.5rem 1.25rem 6rem; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 0.8rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--moss);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(2.6rem, 6vw, 4.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin: 0 0 0.8rem;
+    }
+    .lede { font-size: 1.12rem; max-width: 38rem; margin: 0 0 0.6rem; }
+    .gum-desc:empty { display: none; }
+    .gum-desc { margin: 0 0 1rem; color: var(--muted); }
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin: 1rem 0 0.2rem;
+    }
+    .price-row [data-gumroad-field="price"] {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      letter-spacing: -0.04em;
+    }
+    .once {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    .fine { color: var(--muted); margin: 0 0 1rem; font-size: 0.95rem; }
+    .reviews { color: var(--muted); font-size: 0.92rem; }
+    .sheet {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 1.3rem 1.3rem 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .sheet::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 14px;
+      background: radial-gradient(circle at 10px -2px, transparent 8px, var(--paper) 9px) left top / 20px 14px repeat-x,
+        linear-gradient(var(--line), var(--line));
+      background-blend-mode: destination-out;
+    }
+    .sheet-head, .sheet-row, .sheet-total {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .sheet-kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0.6rem 0 0;
+    }
+    .sheet h2 {
+      font-family: Fraunces, Georgia, serif;
+      margin: 0.15rem 0 0.8rem;
+      font-size: 1.6rem;
+    }
+    .stamp {
+      width: 92px;
+      height: 92px;
+      border: 3px solid var(--stamp);
+      color: var(--stamp);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transform: rotate(-12deg);
+      animation: pop 0.7s ease both;
+    }
+    .sheet-row, .sheet-total {
+      border-top: 1px dashed var(--line);
+      padding: 0.55rem 0;
+      font-size: 0.95rem;
+    }
+    .sheet-total { font-weight: 650; }
+    .note { color: var(--muted); font-size: 0.82rem; margin: 0.4rem 0 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 2.5rem 0;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1rem 1rem 1.1rem;
+    }
+    .card h2, .band h2, .faq h2 { font-family: Fraunces, Georgia, serif; font-size: 1.35rem; margin: 0 0 0.4rem; }
+    .card p, .band p { margin: 0; color: var(--muted); }
+    .band {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.4rem;
+    }
+    ul { margin: 0.4rem 0 0; padding-left: 1.1rem; }
+    li + li { margin-top: 0.35rem; }
+    .warn {
+      border-left: 4px solid var(--stamp);
+      padding-left: 0.9rem;
+    }
+    details {
+      border-top: 1px solid var(--line);
+      padding: 0.75rem 0;
+    }
+    summary { cursor: pointer; font-weight: 650; }
+    summary:focus-visible { outline-offset: 4px; }
+    .faq { margin-top: 2rem; }
+    .closeout {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: var(--moss);
+      color: var(--moss-ink);
+      border-radius: 20px;
+      padding: 1.3rem 1.4rem;
+    }
+    .closeout p { margin: 0.2rem 0 0; }
+    .closeout .buy { background: var(--ink); color: var(--paper); }
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    footer a { color: var(--ink); }
+    .dock {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.7rem 1rem calc(0.7rem + env(safe-area-inset-bottom));
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+    }
+    dialog {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--paper);
+      color: var(--ink);
+      max-width: 32rem;
+      width: calc(100% - 2rem);
+      padding: 1.2rem 1.2rem 1rem;
+      box-shadow: var(--shadow);
+    }
+    dialog::backdrop { background: rgba(20, 14, 10, 0.55); }
+    .reveal { opacity: 0; transform: translateY(12px); animation: rise 0.7s ease forwards; }
+    .reveal:nth-child(2) { animation-delay: 0.08s; }
+    .reveal:nth-child(3) { animation-delay: 0.16s; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+    @keyframes pop { from { transform: rotate(-12deg) scale(0.8); opacity: 0; } to { opacity: 1; } }
+    @media (max-width: 860px) {
+      .hero, .band, .grid { grid-template-columns: 1fr; }
+      .dock { display: flex; }
+      .wrap { padding-bottom: 6.5rem; }
+      .top .buy { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal, .stamp { animation: none; opacity: 1; transform: none; }
+      .stamp { transform: rotate(-12deg); }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#buy">Skip to purchase</a>
+  <header class="top" id="topbar">
+    <a class="brand" href="https://missionwinning.gumroad.com">Mission Winning</a>
+    <div class="top-actions">
+      <button type="button" class="ghost" id="themeBtn" aria-pressed="false">Dark mode</button>
+      <button type="button" class="buy small" data-gumroad-action="buy">Buy</button>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">One-time template pack</p>
+        <h1 data-gumroad-field="name">Invoice Lite</h1>
+        <p class="lede">A one-time pack of printable invoice templates for solo operators who need to bill a client, not subscribe to billing software.</p>
+        <div class="gum-desc" data-gumroad-field="description"></div>
+        <p class="price-row">
+          <span data-gumroad-field="price">$9</span>
+          <span class="once">one-time</span>
+        </p>
+        <p class="fine">Fixed price. Not pay-what-you-want, and not a monthly plan.</p>
+        <p id="buy">
+          <button type="button" class="buy" data-gumroad-action="buy">Buy Invoice Lite</button>
+        </p>
+        <p class="reviews">
+          <span data-gumroad-field="rating">Be the first to review</span>
+          <span aria-hidden="true"> · </span>
+          <span data-gumroad-field="review-count">Be the first to review</span>
+        </p>
+      </div>
+      <aside class="sheet" aria-hidden="true">
+        <div class="sheet-head">
+          <div>
+            <p class="sheet-kicker">Sample layout</p>
+            <h2>Invoice</h2>
+          </div>
+          <div class="stamp">Example only</div>
+        </div>
+        <div class="sheet-row"><span>Line item</span><span>Your rate</span></div>
+        <div class="sheet-row"><span>Optional tax row</span><span>If you add it</span></div>
+        <div class="sheet-total"><span>Total due</span><span>You fill this in</span></div>
+        <p class="note">A picture of the layout, not a real invoice and not a balance anyone owes.</p>
+      </aside>
+    </section>
+
+    <section class="grid" aria-label="What the pack is">
+      <article class="card reveal">
+        <h2>Templates</h2>
+        <p>Invoice, receipt, statement, reminder, credit-note, rate-card, and thank-you starting points you edit yourself.</p>
+      </article>
+      <article class="card reveal">
+        <h2>One payment</h2>
+        <p>You pay once. There is no seat fee, renewal, or monthly billing attached to this product.</p>
+      </article>
+      <article class="card reveal">
+        <h2>Not advice</h2>
+        <p>Not tax, legal, or accounting advice. Not bookkeeping software and not payment processing.</p>
+      </article>
+    </section>
+
+    <section class="band">
+      <div>
+        <h2>What you get</h2>
+        <ul>
+          <li>Editable templates for an invoice, receipt, statement, reminder, credit note, rate card, and thank-you note.</li>
+          <li>Short notes on adapting the files to your own workflow.</li>
+          <li>One clearly fictional example invoice, marked as an example.</li>
+        </ul>
+        <p style="margin-top:1rem">
+          <button type="button" class="text-btn" id="openLimits">Read the limits</button>
+        </p>
+      </div>
+      <div class="warn">
+        <h2>What this is not</h2>
+        <p>Invoice Lite does not file taxes, calculate what you legally owe, chase clients for you, or replace an accountant. Check every amount before you send it.</p>
+      </div>
+    </section>
+
+    <section class="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Questions</h2>
+      <details>
+        <summary>Is this a subscription?</summary>
+        <p>No. Invoice Lite is a single purchase of a template pack.</p>
+      </details>
+      <details>
+        <summary>Is the price pay-what-you-want?</summary>
+        <p>No. The price is fixed. The amount shown above is the price for this product.</p>
+      </details>
+      <details>
+        <summary>Does a template include a W-9?</summary>
+        <p>No. This pack does not include a W-9 form.</p>
+      </details>
+      <details>
+        <summary>Are the sample names real clients?</summary>
+        <p>No. Any example names on the templates are fictional.</p>
+      </details>
+    </section>
+
+    <section class="closeout">
+      <div>
+        <h2>Buy the pack once</h2>
+        <p>Invoice Lite, one-time. Not a software subscription.</p>
+      </div>
+      <button type="button" class="buy" data-gumroad-action="buy">Continue to checkout</button>
+    </section>
+
+    <footer>
+      <a href="https://missionwinning.gumroad.com">Store</a>
+      <a href="https://missionwinning.gumroad.com/l/resume-kit">Resume kit</a>
+      <span>One-time digital pack. Not tax or legal advice.</span>
+    </footer>
+  </main>
+
+  <div class="dock">
+    <strong><span data-gumroad-field="price">$9</span> one-time</strong>
+    <button type="button" class="buy small" data-gumroad-action="buy">Buy</button>
+  </div>
+
+  <dialog id="limits" aria-labelledby="limits-title">
+    <h2 id="limits-title">Limits</h2>
+    <p>Invoice Lite is a template pack. It is not accounting software, tax advice, legal advice, payment processing, or a bookkeeping system.</p>
+    <p>You are responsible for the numbers, tax treatment, and wording you send to a client.</p>
+    <form method="dialog">
+      <button type="submit" class="buy small">Close</button>
+    </form>
+  </dialog>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var themeBtn = document.getElementById("themeBtn");
+      var bar = document.getElementById("topbar");
+      var dialog = document.getElementById("limits");
+      var openBtn = document.getElementById("openLimits");
+      var stored = null;
+      try { stored = localStorage.getItem("invoice-lite-theme"); } catch (e) {}
+      function apply(theme) {
+        if (theme === "dark" || theme === "light") root.setAttribute("data-theme", theme);
+        else root.removeAttribute("data-theme");
+        var dark = theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        themeBtn.textContent = dark ? "Light mode" : "Dark mode";
+        themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
+      }
+      apply(stored);
+      themeBtn.addEventListener("click", function () {
+        var dark = themeBtn.getAttribute("aria-pressed") === "true";
+        var next = dark ? "light" : "dark";
+        apply(next);
+        try { localStorage.setItem("invoice-lite-theme", next); } catch (e) {}
+      });
+      window.addEventListener("scroll", function () {
+        bar.classList.toggle("scrolled", window.scrollY > 8);
+      }, { passive: true });
+      openBtn.addEventListener("click", function () {
+        if (dialog.showModal) dialog.showModal();
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Thanks — Resume Kit</title>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="description" content="Resume Kit — thank you for your purchase."/>
+<style>body{font-family:system-ui;max-width:640px;margin:2rem auto;padding:0 1rem;line-height:1.5}.warn{background:#fff7ed;border:1px dashed #fdba74;border-radius:10px;padding:.75rem 1rem;color:#9a3412;font-size:.95rem}</style></head>
+<body>
+<h1>Thanks</h1>
+<p>If you paid via the checkout link, you should get the zip by email (or Gumroad library) shortly.</p>
+<p>Meanwhile: <a href="tools/keyword-overlap.html">keyword overlap tool</a> · <a href="seo/faq.html">FAQ</a></p>
+<p>No charge went through this page itself — it is only a return URL target once paymentUrl is set.</p>
+<script src="config.js"></script>
+<script>
+(function(){
+  var cfg=window.RESUME_KIT||{};
+  var url=(cfg.paymentUrl||"").trim();
+  if(!url){
+    var n=document.createElement("p");
+    n.className="warn";
+    n.textContent="Heads-up: paymentUrl is still empty, so checkout is NOT live — treat this page as a layout preview, not proof of purchase.";
+    document.body.appendChild(n);
+  }
+})();
+</script>
+</body></html>

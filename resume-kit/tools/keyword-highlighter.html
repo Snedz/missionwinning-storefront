@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free JD ↔ Resume keyword highlighter — client-side only</title>
+  <meta name="description" content="Paste a job description and your resume text. Overlapping tokens highlight in the browser. No API, no upload, no account." />
+  <style>
+    :root{--bg:#07090f;--card:#121826;--line:rgba(255,255,255,.1);--text:#e8eefc;--muted:#9aa8c7;--hit:#fde68a;--hitink:#422006;--accent:#7c9cff}
+    *{box-sizing:border-box} body{margin:0;font-family:Segoe UI,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+    .wrap{max-width:960px;margin:0 auto;padding:1.5rem 1.25rem 4rem}
+    a{color:var(--accent)} .muted{color:var(--muted);font-size:.95rem}
+    h1{font-size:clamp(1.5rem,3vw,2rem);margin:.5rem 0 0.75rem}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+    @media(max-width:720px){.grid{grid-template-columns:1fr}}
+    label{display:block;font-weight:600;margin-bottom:.35rem}
+    textarea{width:100%;min-height:220px;padding:.75rem;border-radius:12px;border:1px solid var(--line);background:#0b1020;color:var(--text);font:inherit;resize:vertical}
+    .actions{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;margin:1rem 0}
+    button{appearance:none;border:0;cursor:pointer;padding:.75rem 1.2rem;border-radius:999px;background:linear-gradient(135deg,#7c9cff,#5b7cfa);color:#041018;font-weight:700;font:inherit}
+    button.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+    .stats{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem;margin:1rem 0}
+    .out{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem;min-height:120px;white-space:pre-wrap;word-break:break-word}
+    mark.hit{background:var(--hit);color:var(--hitink);padding:0 .15em;border-radius:3px}
+    .chip{display:inline-block;margin:.2rem .35rem .2rem 0;padding:.25rem .55rem;border-radius:999px;background:#1e293b;border:1px solid var(--line);font-size:.85rem}
+    nav a{margin-right:1rem;color:var(--muted);text-decoration:none}
+    .note{border-left:3px solid var(--accent);padding:.5rem .85rem;background:#0d1220;margin:1rem 0;font-size:.9rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">← Kit home</a>
+      <a href="../seo/vs-zety.html">vs Zety</a>
+      <a href="../seo/ats-keywords.html">ATS keywords guide</a>
+    </nav>
+    <h1>JD ↔ Resume keyword highlighter</h1>
+    <p class="muted">Paste a job description and your resume. Overlapping tokens (length ≥ 4) highlight on the resume side. <strong>Everything runs in your browser</strong> — no API, no upload, no account.</p>
+    <div class="note">This is a free magnet tool, not an ATS score. Matching tokens ≠ interview guarantee. Prefer evidence over stuffing.</div>
+
+    <div class="grid">
+      <div>
+        <label for="jd">Job description</label>
+        <textarea id="jd" placeholder="Paste the posting here…"></textarea>
+      </div>
+      <div>
+        <label for="resume">Your resume text</label>
+        <textarea id="resume" placeholder="Paste plain-text resume here…"></textarea>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="button" id="run">Highlight overlaps</button>
+      <button type="button" class="ghost" id="clear">Clear</button>
+      <span class="muted" id="status">Waiting for paste…</span>
+    </div>
+
+    <div class="stats" id="stats" hidden>
+      <p><strong id="overlapCount">0</strong> overlapping tokens · <span id="jdTokenCount">0</span> JD tokens · <span id="resumeTokenCount">0</span> resume tokens</p>
+      <div id="chips"></div>
+    </div>
+
+    <h2>Highlighted resume</h2>
+    <div class="out" id="out" aria-live="polite">Results appear here.</div>
+
+    <p class="muted" style="margin-top:2rem">Want the full kit (templates + worksheets)? <a href="https://missionwinning.gumroad.com/l/resume-kit" target="_blank" rel="noopener">Get Resume Kit</a> — $29 one-time.<code>paymentUrl</code>.</p>
+  </div>
+  <script>
+  (function () {
+    var STOP = {
+      that:1, this:1, with:1, from:1, your:1, have:1, will:1, were:1, been:1,
+      they:1, them:1, their:1, what:1, when:1, where:1, which:1, while:1,
+      about:1, into:1, over:1, after:1, before:1, such:1, than:1, then:1,
+      also:1, only:1, other:1, more:1, most:1, some:1, any:1, each:1,
+      should:1, would:1, could:1, must:1, shall:1, being:1, does:1, doing:1,
+      and:1, the:1, for:1, are:1, but:1, not:1, you:1, all:1, can:1, her:1,
+      was:1, one:1, our:1, out:1, day:1, get:1, has:1, him:1, his:1, how:1,
+      man:1, new:1, now:1, old:1, see:1, two:1, way:1, who:1, boy:1, did:1,
+      its:1, let:1, put:1, say:1, she:1, too:1, use:1, work:1, role:1, team:1,
+      ability:1, experience:1, including:1, required:1, requirements:1,
+      preferred:1, responsibilities:1, position:1, company:1, please:1
+    };
+
+    function tokenize(text) {
+      var m = (text || "").toLowerCase().match(/[a-z][a-z0-9+#./-]{3,}/g) || [];
+      var set = {};
+      m.forEach(function (t) {
+        t = t.replace(/[./]+$/g, "");
+        if (t.length < 4) return;
+        if (STOP[t]) return;
+        set[t] = 1;
+      });
+      return set;
+    }
+
+    function countKeys(obj) {
+      var n = 0; for (var k in obj) if (Object.prototype.hasOwnProperty.call(obj, k)) n++;
+      return n;
+    }
+
+    function escapeHtml(s) {
+      return String(s)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function highlight(resumeText, overlap) {
+      var keys = Object.keys(overlap).sort(function (a, b) { return b.length - a.length; });
+      if (!keys.length) return escapeHtml(resumeText);
+      var re = new RegExp("\\b(" + keys.map(function (k) {
+        return k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      }).join("|") + ")\\b", "gi");
+      return escapeHtml(resumeText).replace(re, '<mark class="hit">$1</mark>');
+    }
+
+    document.getElementById("run").addEventListener("click", function () {
+      var jd = document.getElementById("jd").value;
+      var resume = document.getElementById("resume").value;
+      var jdTok = tokenize(jd);
+      var resTok = tokenize(resume);
+      var overlap = {};
+      for (var t in jdTok) {
+        if (resTok[t]) overlap[t] = 1;
+      }
+      var n = countKeys(overlap);
+      document.getElementById("stats").hidden = false;
+      document.getElementById("overlapCount").textContent = String(n);
+      document.getElementById("jdTokenCount").textContent = String(countKeys(jdTok));
+      document.getElementById("resumeTokenCount").textContent = String(countKeys(resTok));
+      var chips = document.getElementById("chips");
+      chips.innerHTML = "";
+      Object.keys(overlap).sort().forEach(function (k) {
+        var span = document.createElement("span");
+        span.className = "chip";
+        span.textContent = k;
+        chips.appendChild(span);
+      });
+      document.getElementById("out").innerHTML = highlight(resume, overlap) || "<span class='muted'>Paste resume text.</span>";
+      document.getElementById("status").textContent = n ? "Highlight complete (local only)." : "No overlaps ≥4 chars after stopwords — try more of the posting.";
+    });
+
+    document.getElementById("clear").addEventListener("click", function () {
+      document.getElementById("jd").value = "";
+      document.getElementById("resume").value = "";
+      document.getElementById("stats").hidden = true;
+      document.getElementById("out").textContent = "Results appear here.";
+      document.getElementById("status").textContent = "Cleared.";
+    });
+  })();
+  </script>
+</body>
+</html>

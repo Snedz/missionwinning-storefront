@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Host before submitting Search Console. No invented domain.
+Sitemap: https://EXAMPLE.com/invoice-lite/sitemap.xml

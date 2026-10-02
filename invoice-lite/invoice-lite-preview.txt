@@ -1,0 +1,24 @@
+Invoice Lite — free preview (no signup)
+
+Here is what the pack actually contains, so you can judge it before paying:
+
+WHAT YOU GET ($9, one-time)
+  - 24 HTML invoice/quote/receipt/statement templates you edit locally
+  - Open in a browser -> Print -> Save as PDF. No account, no monthly fee.
+  - Deposit invoices, past-due reminders, credit notes, change orders
+  - A numbering guide, so you're not re-inventing invoice numbers
+
+A REAL SAMPLE (fictional client, clearly marked as fake):
+  samples/dogfood-acme.html — an ACME Widgets invoice, filled in, so you can see
+  the actual layout rather than a screenshot.
+
+NOT INCLUDED — so there's no surprise:
+  - Bookkeeping, tax advice, or payment processing
+  - Sending invoices on your behalf (you send them)
+  - Any subscription. It is a one-time download.
+
+If it fits how you bill clients, the pack is here:
+  https://missionwinning.gumroad.com/l/invoice-lite
+
+If it doesn't, the sample above is still yours to use as a layout reference.
+— Snowden

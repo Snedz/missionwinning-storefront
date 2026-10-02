@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATS Resume Kit — one-time templates, not SaaS</title>
+  <meta name="description" content="One-time ATS resume kit: templates, checklist, and job-paste worksheet. Buy once, download the zip. Not a monthly resume builder." />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this a subscription?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. ATS Resume Kit is a one-time digital download (zip). There is no monthly fee and no account required after purchase."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will this get me a job?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No honest seller can promise interviews or offers. The kit helps you ship a cleaner ATS-friendly file and avoid inventing employers. Outcomes depend on your experience and the market."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is this different from Rezi, Teal, or Novoresume?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Those products are ongoing builders or SaaS platforms. This is a static kit you own. See the Compare pages for honest feature tables."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is in the zip?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ATS-safe resume template, job-paste worksheet, cover scaffold, honesty checklist, and export notes. See the pack sample on the site."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I get a free checklist before buying?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Use the email capture stub on the lander — it opens a mailto with your address until a real form endpoint is wired. No fake waitlist counts."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="bg-glow" aria-hidden="true"></div>
+  <header class="top">
+    <a class="logo" href="index.html">ATS Resume Kit</a>
+    <nav>
+      <a href="#whats-in">What’s in the zip</a>
+      <a href="#capture">Free checklist</a>
+      <a href="#faq">FAQ</a>
+      <a href="seo/index.html">SEO hub</a>
+      <a href="tools/keyword-highlighter.html">Highlighter</a>
+      <a href="tools/keyword-mapper.html">Mapper</a>
+      <a class="btn btn-sm buy-link disabled" href="#buy" data-buy aria-disabled="true" tabindex="-1" role="button">Buy</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Digital download · one-time · no SaaS lock-in</p>
+      <h1>Stop rewriting your resume into sludge.<br /><span class="grad">Ship an ATS-safe kit this week.</span></h1>
+      <p class="lede">Templates, a job-paste worksheet, and a “do not invent employers” checklist — in one zip. Not another $29/mo builder with a dashboard you’ll abandon.</p>
+      <div class="hero-cta">
+        <a class="btn buy-link disabled" id="heroBuy" href="#buy" data-buy aria-disabled="true" tabindex="-1" role="button">Checkout not live — $29 one-time</a>
+        <a class="btn btn-ghost" id="heroAlt" href="#capture">Email me the free checklist</a>
+      </div>
+      <p class="micro" id="checkoutMicro">Checkout opens only when a real payment link is pasted into <code>config.js</code>. No fake scarcity. No invented reviews.</p>
+      <p class="micro" id="ctaEmptyBanner" hidden style="margin-top:.75rem;padding:.65rem .9rem;border:1px dashed rgba(251,191,36,.45);border-radius:12px;color:#fbbf24;max-width:36rem">Payment link not live yet — Buy stays disabled on purpose. Use the free checklist email stub or try the keyword tools while the founder pastes <code>paymentUrl</code>.</p>
+    </section>
+
+    <section class="panel" id="whats-in">
+      <h2>What’s in the zip</h2>
+      <ul class="grid-cards">
+        <li><strong>ATS-safe templates</strong><span>Single-column Markdown + printable HTML (classic / modern / compact) with print CSS.</span></li>
+        <li><strong>Job-paste worksheet</strong><span>Map the posting’s must-haves to evidence bullets — no keyword stuffing theater.</span></li>
+        <li><strong>Cover scaffold</strong><span>Short cover note structure that mirrors the role without AI purple prose.</span></li>
+        <li><strong>Honesty checklist</strong><span>“Do not invent employers / dates / metrics” gate before you export.</span></li>
+        <li><strong>Skill completeness</strong><span>Contact, roles, proof stories, and skills as empty boxes. No points. <a href="skill-completeness-checklist.html">Print the checklist</a>.</span></li>
+      </ul>
+      <p class="micro">Browse the sample pack files under <code>pack/</code> in the repo — same structure you get in the download.</p>
+    </section>
+
+    <section class="panel quiet">
+      <h2>Who it’s for</h2>
+      <p>Mid-career ICs who’ve been ghosted after 20+ apps and suspect the file dies in ATS before a human reads it. If you want coaching, LinkedIn autofill, or “guaranteed interviews,” this is not that.</p>
+    </section>
+
+    <section class="panel" id="capture">
+      <h2>Free ATS checklist (email stub)</h2>
+      <p class="lede" style="font-size:1rem">Leave your email. Until a form backend exists, this opens a pre-filled mailto to the founder — honest stub, not a fake “12,403 people on the list.”</p>
+      <form id="captureForm" class="capture" action="#" method="post">
+        <label class="sr-only" for="email">Email</label>
+        <input id="email" name="email" type="email" required placeholder="you@example.com" autocomplete="email" />
+        <button type="submit" class="btn">Send me the checklist</button>
+      </form>
+      <p class="micro" id="captureHint">No spam blasts. One reply with the free checklist section (or kit link when payment is live).</p>
+    </section>
+
+    <section class="panel" id="faq">
+      <h2>FAQ</h2>
+      <details open><summary>Is this SaaS?</summary><p>No. One purchase → zip. You edit locally in Word/Google Docs/Markdown.</p></details>
+      <details><summary>Do you claim ATS “pass rates”?</summary><p>No. ATS behavior varies by vendor. We optimize for clean structure and honest content, not magic scores.</p></details>
+      <details><summary>What’s in the pack exactly?</summary><p>See <code>pack/README.md</code>: template, job-paste worksheet, cover scaffold, honesty checklist, export notes.</p></details>
+      <details><summary>Compared to Rezi / Teal / Novoresume?</summary><p>See <a href="seo/vs-rezi.html">vs Rezi</a>, <a href="seo/vs-teal.html">vs Teal</a>, <a href="seo/vs-novoresume.html">vs Novoresume</a>, <a href="seo/vs-zety.html">vs Zety</a>, <a href="seo/vs-kickresume.html">vs Kickresume</a>, <a href="seo/vs-huntr.html">vs Huntr</a>, <a href="seo/vs-linkedin-resume-builder.html">vs LinkedIn</a>, <a href="seo/vs-visualcv.html">vs VisualCV</a>, <a href="seo/vs-resumeio.html">vs Resume.io</a>, <a href="seo/vs-canva-resume.html">vs Canva Resume</a>, <a href="seo/vs-flowcv.html">vs FlowCV</a>, <a href="seo/ats-resume-checklist.html">ATS checklist</a>, <a href="seo/ats-keywords.html">ATS keywords</a>, <a href="tools/keyword-highlighter.html">keyword highlighter</a>, <a href="tools/keyword-mapper.html">keyword mapper</a>, and <a href="seo/how-to-tailor-resume-to-job.html">How to tailor</a>.</p></details>
+      <details><summary>Refunds?</summary><p>Digital goods — Founder sets policy on the payment provider page once <code>paymentUrl</code> is live. We do not invent a refund rate.</p></details>
+      <details><summary>How do I buy?</summary><p>Click Buy — checkout opens on Gumroad. One-time $29, no account required.</p></details>
+    </section>
+
+    <section class="panel buy" id="buy">
+      <h2>Checkout</h2>
+      <p class="price big" id="priceLabel2">$29 one-time</p>
+      <p class="lede" style="font-size:1rem;max-width:36rem">One payment. Zip delivered via your provider’s thank-you / download. No subscription, no upsell dashboard in this v0.</p>
+      <ul class="buy-bullets">
+        <li>Own the files — edit forever offline</li>
+        <li>Includes honesty gate so you do not ship invented fluff</li>
+        <li>Comparison pages exist so you can decide kit vs SaaS calmly</li>
+      </ul>
+      <a class="btn buy-link disabled" id="buyBtn" href="#buy" data-buy aria-disabled="true" tabindex="-1" role="button">Checkout not live yet</a>
+      <p class="micro" id="buyHint">Checkout URL not set yet — founder pastes <code>paymentUrl</code> in <code>config.js</code>.</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div>
+      <strong>Compare &amp; guides</strong>
+      <a href="seo/index.html">SEO hub</a>
+      <a href="seo/vs-rezi.html">vs Rezi</a>
+      <a href="seo/vs-teal.html">vs Teal</a>
+      <a href="seo/vs-novoresume.html">vs Novoresume</a>
+      <a href="seo/vs-zety.html">vs Zety</a>
+      <a href="seo/vs-kickresume.html">vs Kickresume</a>
+      <a href="seo/vs-huntr.html">vs Huntr</a>
+      <a href="seo/vs-linkedin-resume-builder.html">vs LinkedIn</a>
+      <a href="seo/vs-visualcv.html">vs VisualCV</a>
+      <a href="seo/vs-resumeio.html">vs Resume.io</a>
+      <a href="seo/vs-canva-resume.html">vs Canva Resume</a>
+      <a href="seo/best-ats-resume-templates-2026.html">Best ATS templates 2026</a>
+      <a href="seo/ats-resume-checklist.html">ATS checklist</a>
+      <a href="seo/ats-keywords.html">ATS keywords</a>
+      <a href="seo/how-to-tailor-resume-to-job.html">Tailor to a job</a>
+      <a href="seo/resume-builder-reviews-complaints.html">Reviews &amp; complaints</a>
+      <a href="tools/keyword-highlighter.html">Keyword highlighter</a>
+      <a href="tools/keyword-mapper.html">Keyword mapper</a>
+      <a href="templates/classic.html">Classic template</a>
+      <a href="templates/modern.html">Modern</a>
+      <a href="templates/compact.html">Compact</a>
+      <a href="templates/cover-letter.html">Cover letter</a>
+    </div>
+    <div>
+      <strong>Worksheets</strong>
+      <a href="skill-completeness-checklist.html">Skill completeness checklist</a>
+      <a href="print-week.html">Weekly theme</a>
+    </div>
+    <p>No invented MRR · No fake reviews · Program 67 fuel rocket</p>
+  </footer>
+
+  <div class="sticky-buy" id="stickyBuy">
+    <span id="stickyPrice">$29 one-time</span>
+    <a class="btn btn-sm buy-link disabled" href="#buy" data-buy aria-disabled="true" tabindex="-1" role="button">Buy</a>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Print Invoice Lite to PDF</title>
+  <style>
+    :root { color-scheme: light dark; --bg:#07090f; --card:#121826; --text:#e8eefc; --muted:#9aa8c7; --accent:#5eead4; }
+    * { box-sizing:border-box; } body { margin:0; font:1rem/1.6 system-ui,sans-serif; background:var(--bg); color:var(--text); }
+    main { max-width:760px; margin:auto; padding:3rem 1.25rem 5rem; } h1 { line-height:1.15; } h2 { margin-top:2rem; } p, li { color:var(--muted); } a { color:var(--accent); }
+    .card { background:var(--card); border:1px solid rgba(255,255,255,.1); border-radius:14px; padding:1rem 1.2rem; }
+    kbd { border:1px solid rgba(255,255,255,.25); border-radius:4px; padding:.1rem .35rem; color:var(--text); }
+  </style>
+</head>
+<body>
+  <main>
+    <a href="index.html">← Back to Invoice Lite</a>
+    <h1>Print the HTML invoice to PDF</h1>
+    <p>Invoice Lite uses the browser print flow. Fill in the invoice preview, then save the print output as a PDF on your device.</p>
+    <section class="card">
+      <h2>Steps</h2>
+      <ol>
+        <li>Open the <a href="index.html">Invoice Lite invoice builder</a>.</li>
+        <li>Enter your business, client, invoice number, line items, and any applicable tax details.</li>
+        <li>Review the white invoice preview and remove any placeholder or fake sample values.</li>
+        <li>Select <strong>Print / Save PDF</strong>, or press <kbd>Ctrl</kbd>+<kbd>P</kbd> on Windows/Linux or <kbd>⌘</kbd>+<kbd>P</kbd> on macOS.</li>
+        <li>In the browser print dialog, choose <strong>Save to PDF</strong>, confirm the page preview, and save the file.</li>
+      </ol>
+    </section>
+    <h2>Important</h2>
+    <p>The PDF is created by your browser when you print. A generated PDF does not ship in the zip; the pack contains editable HTML templates and the browser-based workflow.</p>
+    <p>Check the saved PDF before sending it. Invoice Lite is a template and is not tax or legal advice.</p>
+  </main>
+</body>
+</html>

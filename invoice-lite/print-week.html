@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weekly invoice theme | Invoice Lite</title>
+  <style>
+    :root { color: #1f2933; background: #fff; font-family: Georgia, "Times New Roman", serif; }
+    body { margin: 0; line-height: 1.45; }
+    main { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.25rem; }
+    h1, h2 { line-height: 1.15; margin: 0 0 .65rem; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.15rem; margin-top: 1.6rem; border-bottom: 1px solid #9aa5b1; padding-bottom: .3rem; }
+    p { margin: .45rem 0; }
+    .kicker { color: #52606d; font: 700 .75rem/1.2 Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+    .intro { margin: 0 0 1rem; }
+    .hint { color: #52606d; font-size: .9rem; }
+    .line { display: inline-block; min-width: 16rem; min-height: 1.15em; border-bottom: 1px solid #52606d; vertical-align: bottom; }
+    .wide { min-width: 24rem; }
+    .slot { border: 1px solid #9aa5b1; padding: .75rem .85rem; margin: .55rem 0; }
+    .box { display: inline-block; width: .9em; height: .9em; border: 1px solid #1f2933; margin-right: .45em; vertical-align: -.08em; }
+    .screen-only { margin-top: 2rem; font: .9rem Arial, sans-serif; }
+    @media print {
+      @page { margin: 0.55in; }
+      main { max-width: none; padding: 0; }
+      .screen-only { display: none; }
+      h2, .slot { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="kicker">Invoice Lite · Weekly sheet</p>
+    <h1>This week's invoicing theme</h1>
+    <p class="intro">One week, three moves: send, chase, file. Write the theme on Monday or whenever you sit down. A missed day does not reset the week, the list, or the paper already sent. There is no login, no streak, and no points.</p>
+    <p>Theme: <span class="line wide" aria-label="Blank weekly theme line"></span></p>
+
+    <section aria-labelledby="send-heading">
+      <h2 id="send-heading">Send</h2>
+      <p class="hint">Invoices that should leave this week. Name the client and the job. Leave the rate off this sheet.</p>
+      <div class="slot">
+        <p>Client: <span class="line"></span></p>
+        <p>What the invoice covers: <span class="line wide"></span></p>
+        <p><span class="box"></span>Sent, or still sitting here on purpose.</p>
+      </div>
+      <div class="slot">
+        <p>Client: <span class="line"></span></p>
+        <p>What the invoice covers: <span class="line wide"></span></p>
+        <p><span class="box"></span>Sent, or still sitting here on purpose.</p>
+      </div>
+      <div class="slot">
+        <p>Client: <span class="line"></span></p>
+        <p>What the invoice covers: <span class="line wide"></span></p>
+        <p><span class="box"></span>Sent, or still sitting here on purpose.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="chase-heading">
+      <h2 id="chase-heading">Chase</h2>
+      <p class="hint">One calm follow-up on something already sent. Not a new bill. Not a threat.</p>
+      <div class="slot">
+        <p>Which invoice: <span class="line"></span></p>
+        <p>What I will say: <span class="line wide"></span></p>
+        <p><span class="box"></span>The note went out, or I chose to wait.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="file-heading">
+      <h2 id="file-heading">File</h2>
+      <p class="hint">Put the week's paper where you can find it next month. A folder name is enough.</p>
+      <div class="slot">
+        <p>Where sent copies live: <span class="line wide"></span></p>
+        <p>Where paid copies live: <span class="line wide"></span></p>
+        <p><span class="box"></span>Filed, or marked so I know it is still loose.</p>
+      </div>
+    </section>
+
+    <p class="hint">Skip a day and the other days stay. Nothing on this page expires, scores you, or asks you to sign in.</p>
+    <p class="screen-only"><a href="index.html">Return to Invoice Lite</a></p>
+  </main>
+</body>
+</html>

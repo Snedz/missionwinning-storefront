@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thanks — Invoice Lite</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    :root{--bg:#07090f;--text:#e8eefc;--muted:#9aa8c7;--accent:#5eead4;--line:rgba(255,255,255,.08)}
+    body{margin:0;font-family:Segoe UI,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+    .wrap{max-width:640px;margin:0 auto;padding:3rem 1.25rem}
+    h1{font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 1rem}
+    .muted{color:var(--muted)}
+    a{color:var(--accent)}
+    .card{background:#121826;border:1px solid var(--line);border-radius:16px;padding:1.25rem;margin:1.5rem 0}
+    code{color:var(--accent)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Thanks — download next</h1>
+    <p class="muted">If you arrived here after a real checkout, your payment provider should also email the zip. This page is a static stub for post-purchase redirect.</p>
+    <div class="card">
+      <p><strong>What you should receive</strong></p>
+      <ul>
+        <li>Simple + branded HTML invoice templates</li>
+        <li>Print / Save PDF friendly layouts</li>
+        <li>Dogfood ACME sample (clearly fake) for practice</li>
+      </ul>
+      <p class="muted">A receipt from your payment provider is proof of purchase. This page is a thank-you, not a receipt.</p>
+    </div>
+    <p><a href="index.html">← Back to Invoice Lite</a> · <a href="../samples/dogfood-acme.html">Open ACME dogfood sample</a></p>
+  </div>
+  <script src="config.js"></script>
+  <script>
+    (function(){
+      var cfg=window.INVOICE_LITE||{};
+      var url=(cfg.paymentUrl||"").trim();
+      if(!url){
+        var n=document.createElement("p");
+        n.className="muted";
+        n.textContent="Note: paymentUrl is empty — treat this as a layout preview, not a paid thank-you.";
+        document.querySelector(".wrap").appendChild(n);
+      }
+    })();
+  </script>
+</body>
+</html>

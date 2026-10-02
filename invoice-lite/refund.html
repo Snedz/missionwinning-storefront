@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Refund receipt — Invoice Lite</title>
+<style>
+    :root { color-scheme: light dark; --bg:#07090f; --card:#121826; --text:#e8eefc; --muted:#9aa8c7; --accent:#5eead4; --line:rgba(255,255,255,.1); }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font:1rem/1.6 system-ui,sans-serif; }
+    main { max-width:760px; margin:auto; padding:3rem 1.25rem 5rem; }
+    h1 { line-height:1.15; }
+    h2 { margin-top:2rem; line-height:1.25; }
+    p, li { color:var(--muted); }
+    a { color:var(--accent); }
+    .back { display:inline-block; margin-bottom:1.5rem; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:1.25rem; margin:1.25rem 0; }
+    .notice { border-left:4px solid var(--accent); padding-left:1rem; }
+    .blank { display:inline-block; min-width:12rem; border-bottom:1px solid var(--muted); }
+    .signoff { margin-top:2rem; }
+  </style>
+</head><body>
+<header><a href="index.html">Invoice Lite</a></header>
+<main>
+<h1>Refund receipt</h1>
+<p>Print or save as PDF when you refund a client. Keeps your books honest.</p>
+<pre id="out"></pre>
+<button type="button" id="fill">Fill sample</button>
+</main>
+<script>
+const sample=`Refund receipt
+
+From: Your Studio
+To: ACME Co
+Date: 2026-09-17
+Original invoice: #1042
+
+Refunded: $90.00
+Method: card
+Reason: unused hours
+
+This confirms the refund has been issued.`;
+document.getElementById('fill').onclick=()=>{document.getElementById('out').textContent=sample};
+document.getElementById('out').textContent='Click Fill sample, then print / Save as PDF.';
+</script>
+</body></html>

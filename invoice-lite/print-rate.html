@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A rate floor worksheet for freelancers: set the floor before you quote, keep the numbers visible, and leave room for the real scope." />
+  <meta name="keywords" content="freelance rate worksheet, how to set freelance rates, rate card freelance, freelance pricing worksheet" />
+  <title>Rate Floor Worksheet | Invoice Lite</title>
+  <style>
+    :root { color: #1f2933; background: #fff; font-family: Georgia, "Times New Roman", serif; }
+    body { margin: 0; line-height: 1.45; }
+    main { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.25rem; }
+    h1, h2 { line-height: 1.15; margin: 0 0 .65rem; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.15rem; margin-top: 1.8rem; border-bottom: 1px solid #9aa5b1; padding-bottom: .3rem; }
+    p { margin: .45rem 0; }
+    .kicker { color: #52606d; font: 700 .75rem/1.2 Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+    .intro { margin: 0 0 1.1rem; }
+    .notice { border-left: 4px solid #52606d; background: #f0f4f8; padding: .75rem 1rem; margin: 1rem 0; }
+    .worksheet { border: 1px solid #9aa5b1; padding: 1rem; }
+    .row { display: grid; grid-template-columns: 1fr 1.25fr; gap: 1rem; align-items: end; margin: 1rem 0; }
+    label { font-weight: 700; }
+    .fill-line { display: block; min-height: 1.5em; border-bottom: 1px solid #52606d; }
+    .policy { min-height: 4.8rem; border: 1px solid #9aa5b1; padding: .45rem; background: repeating-linear-gradient(to bottom, transparent 0, transparent 1.55rem, #d9e2ec 1.55rem, #d9e2ec 1.6rem); }
+    .notes { min-height: 7rem; border-bottom: 1px solid #52606d; background: repeating-linear-gradient(to bottom, transparent 0, transparent 1.65rem, #d9e2ec 1.65rem, #d9e2ec 1.7rem); }
+    .screen-only { margin-top: 2rem; font: .9rem Arial, sans-serif; }
+    @media print {
+      @page { margin: 0.6in; }
+      main { max-width: none; padding: 0; }
+      .screen-only { display: none; }
+      .notice { background: #eee !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .worksheet { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="kicker">Invoice Lite · Pricing worksheet</p>
+    <h1>Rate Floor Worksheet</h1>
+    <p class="intro">Set a clear floor before you quote. Keep the numbers visible, leave room for the actual scope, and revisit the worksheet when the work changes.</p>
+    <div class="notice"><strong>Not legal advice.</strong> Confirm contract, tax, collection, and late-payment requirements for your location and situation with a qualified professional.</div>
+
+    <section class="worksheet" aria-labelledby="basics-heading">
+      <h2 id="basics-heading">Project basics</h2>
+      <div class="row"><label for="client-line">Client / company</label><span id="client-line" class="fill-line" aria-label="Blank client or company line"></span></div>
+      <div class="row"><label for="scope-line">Scope or service</label><span id="scope-line" class="fill-line" aria-label="Blank scope line"></span></div>
+      <div class="row"><label for="date-line">Date reviewed</label><span id="date-line" class="fill-line" aria-label="Blank date line"></span></div>
+    </section>
+
+    <section class="worksheet" aria-labelledby="floor-heading">
+      <h2 id="floor-heading">Rate floor</h2>
+      <p class="hint">Write your own figures. This worksheet intentionally does not prescribe a price.</p>
+      <div class="row"><label for="hourly-line">Hourly floor</label><span id="hourly-line" class="fill-line" aria-label="Blank hourly floor line"></span></div>
+      <div class="row"><label for="day-line">Day rate</label><span id="day-line" class="fill-line" aria-label="Blank day rate line"></span></div>
+      <div class="row"><label for="deposit-line">Deposit percentage</label><span id="deposit-line" class="fill-line" aria-label="Blank deposit percentage line"></span></div>
+    </section>
+
+    <section class="worksheet" aria-labelledby="policy-heading">
+      <h2 id="policy-heading">Late policy</h2>
+      <p>State when an invoice is due, how reminders work, and what happens after the due date.</p>
+      <div class="policy" aria-label="Blank late policy writing area"></div>
+    </section>
+
+    <section class="worksheet" aria-labelledby="notes-heading">
+      <h2 id="notes-heading">Scope notes and assumptions</h2>
+      <div class="notes" aria-label="Blank scope notes area"></div>
+    </section>
+
+    <p class="screen-only"><a href="index.html">Return to Invoice Lite</a></p>
+  </main>
+</body>
+</html>

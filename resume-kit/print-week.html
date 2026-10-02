@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weekly Vault | Resume Kit</title>
+  <style>
+    :root { color: #1f2933; background: #fff; font-family: Georgia, "Times New Roman", serif; }
+    body { margin: 0; line-height: 1.45; }
+    main { max-width: 780px; margin: 0 auto; padding: 2.5rem 1.25rem; }
+    h1, h2 { line-height: 1.15; margin: 0 0 .65rem; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.15rem; margin-top: 1.8rem; border-bottom: 1px solid #9aa5b1; padding-bottom: .3rem; }
+    p { margin: .45rem 0; }
+    .kicker { color: #52606d; font: 700 .75rem/1.2 Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+    .intro { margin: 0 0 1.25rem; }
+    .vault { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; margin: 1rem 0; }
+    .vault-card { border: 1px solid #9aa5b1; padding: .8rem; min-height: 4.5rem; }
+    .vault-card strong { display: block; font: 700 .8rem Arial, sans-serif; text-transform: uppercase; letter-spacing: .05em; }
+    .vault-card span { display: block; font-size: 1.35rem; font-weight: 700; margin-top: .25rem; }
+    .hint { color: #52606d; font-size: .9rem; }
+    table { width: 100%; border-collapse: collapse; margin: .6rem 0 1rem; }
+    th, td { border: 1px solid #9aa5b1; padding: .55rem; text-align: left; vertical-align: top; }
+    th { background: #f0f4f8; font: 700 .78rem Arial, sans-serif; text-transform: uppercase; letter-spacing: .04em; }
+    .fill-line { display: block; min-height: 1.4em; border-bottom: 1px solid #52606d; }
+    .short-line { display: inline-block; min-width: 10rem; min-height: 1.2em; border-bottom: 1px solid #52606d; vertical-align: bottom; }
+    .checklist { list-style: none; padding: 0; margin: .5rem 0; }
+    .checklist li { margin: .55rem 0; }
+    .box { display: inline-block; width: .9em; height: .9em; border: 1px solid #1f2933; margin-right: .45em; vertical-align: -.08em; }
+    .notes { min-height: 5rem; border-bottom: 1px solid #52606d; background: repeating-linear-gradient(to bottom, transparent 0, transparent 1.65rem, #d9e2ec 1.65rem, #d9e2ec 1.7rem); }
+    .screen-only { margin-top: 2rem; font: .9rem Arial, sans-serif; }
+    @media print {
+      @page { margin: 0.55in; }
+      main { max-width: none; padding: 0; }
+      .screen-only { display: none; }
+      .vault-card, th, td { border-color: #555; }
+      th { background: #eee !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      h2 { break-after: avoid; }
+      table, .vault { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="kicker">Resume Kit · Weekly worksheet</p>
+    <h1>The Weekly Vault</h1>
+    <p class="intro">A small, honest application loop: prepare five tailored applications, make one human touch, and run one honesty pass before you call the week done.</p>
+    <section aria-labelledby="theme-heading">
+      <h2 id="theme-heading">This week's theme</h2>
+      <p>Name one job-search theme for the week: applications, follow-ups, or one skill patch. A missed day has no penalty. There is no login, no streak, and no points.</p>
+      <p>Theme: <span class="short-line" aria-label="Blank weekly theme line"></span></p>
+    </section>
+
+    <section aria-labelledby="vault-heading">
+      <h2 id="vault-heading">This week’s vault</h2>
+      <div class="vault">
+        <div class="vault-card"><strong>Tailored applications</strong><span>5</span><small>specific, evidence-led</small></div>
+        <div class="vault-card"><strong>Human touch</strong><span>1</span><small>useful, respectful, brief</small></div>
+        <div class="vault-card"><strong>Honesty pass</strong><span>1</span><small>claims and fit checked</small></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="applications-heading">
+      <h2 id="applications-heading">Five tailored applications</h2>
+      <p class="hint">Write the company and role first. Name one real proof point or angle for each application.</p>
+      <table>
+        <thead><tr><th>#</th><th>Company / role</th><th>Tailored proof or angle</th><th>Next step</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+          <tr><td>2</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+          <tr><td>3</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+          <tr><td>4</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+          <tr><td>5</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="touch-heading">
+      <h2 id="touch-heading">One human touch</h2>
+      <p>Company or person: <span class="short-line"></span></p>
+      <p>Context / useful question: <span class="short-line" style="min-width: 18rem;"></span></p>
+      <p>What I will send or ask: <span class="short-line" style="min-width: 18rem;"></span></p>
+    </section>
+
+    <section aria-labelledby="honesty-heading">
+      <h2 id="honesty-heading">One honesty pass</h2>
+      <ul class="checklist">
+        <li><span class="box"></span>Every claim is supported by something I actually did.</li>
+        <li><span class="box"></span>Dates, titles, tools, and outcomes are accurate.</li>
+        <li><span class="box"></span>The application names the real fit without inflated language.</li>
+        <li><span class="box"></span>The resume, cover note, and portfolio agree with one another.</li>
+      </ul>
+      <p class="hint">Notes or a claim to verify:</p>
+      <div class="notes" aria-label="Blank notes area"></div>
+    </section>
+
+    <p class="screen-only"><a href="index.html">Return to Resume Kit</a> · <a href="skill-completeness-checklist.html">Skill completeness checklist</a></p>
+  </main>
+</body>
+</html>

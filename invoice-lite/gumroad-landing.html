@@ -1,0 +1,53 @@
+<style>
+    :root { color-scheme: light; --ink: #1c1917; --muted: #57534e; --line: #e7e5e4; --buy: #1f4d3a; --buy-ink: #fff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #fafaf9; color: var(--ink); font: 16px/1.5 "Segoe UI", system-ui, sans-serif; }
+    a { color: inherit; }
+    main { max-width: 40rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+    h1 { font-size: 2rem; line-height: 1.1; margin: 0.4rem 0; }
+    .price { font-size: 1.6rem; font-weight: 700; margin: 0.2rem 0; }
+    .once { font-size: 1rem; font-weight: 400; color: var(--muted); }
+    .buy { display: inline-block; margin: 0.6rem 0; background: var(--buy); color: var(--buy-ink); text-decoration: none; font-weight: 700; padding: 0.75rem 1rem; }
+    h2 { font-size: 1.1rem; margin: 1.4rem 0 0.4rem; }
+    ul { margin: 0.2rem 0; padding-left: 1.2rem; }
+    li { margin: 0.25rem 0; }
+    code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.92em; }
+    .note { color: var(--muted); }
+    footer { margin-top: 1.6rem; color: var(--muted); }
+    .hero { margin: 0.4rem 0 0.6rem; }
+    .hero img { display: block; width: 100%; height: auto; border: 1px solid var(--line); background: #fff; }
+    @media (max-width: 640px) { .buy { display: block; text-align: center; } }
+  </style>
+  <main>
+    <p><a href="https://missionwinning.gumroad.com">Mission Winning</a></p>
+    <p class="hero"><img src="https://public-files.gumroad.com/y27w01do3eikt5fzhmrrme2ghwhv" width="1280" height="720" alt="Invoice Lite — invoice document preview" /></p>
+    <h1 data-gumroad-field="name">Invoice Lite</h1>
+    <p class="price"><span data-gumroad-field="price">$9</span> <span class="once">one-time</span></p>
+    <p>HTML files you open in a browser and print to PDF. You edit the words. Nobody sends an invoice for you.</p>
+    <p><a class="buy" data-gumroad-action="buy" href="https://missionwinning.gumroad.com/l/invoice-lite">Buy Invoice Lite</a></p>
+    <h2>In the zip</h2>
+    <ul>
+      <li>
+<code>simple-invoice.html</code> — a plain invoice</li>
+      <li>
+<code>branded-invoice.html</code> — an invoice with an empty logo slot</li>
+      <li>
+<code>quote.html</code> — a quote, not an invoice</li>
+      <li>
+<code>receipt.html</code> — a record of a payment you already received</li>
+      <li>
+<code>statement.html</code> — several invoices on one page</li>
+      <li>
+<code>deposit-invoice.html</code> — a deposit due now</li>
+      <li>
+<code>past-due-reminder.html</code> — a reminder letter you edit before you send it</li>
+      <li>
+<code>sample-acme-demo.html</code> — a filled example. Fictional. ACME Demo Co. Do not send it.</li>
+      <li>
+<code>w9-request-note.html</code> — a request note, not Form W-9</li>
+      <li>
+<code>README.md</code> — those filenames, and how to print to PDF</li>
+    </ul>
+    <p class="note">Not tax, legal, or accounting advice. Not bookkeeping software and not payment processing.</p>
+    <footer>Template pack, not a service.</footer>
+  </main>

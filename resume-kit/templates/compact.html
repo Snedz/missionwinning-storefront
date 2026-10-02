@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATS Resume — Compact (single column)</title>
+  <style>
+    :root { --ink:#111; --muted:#555; --line:#bbb; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Arial, Helvetica, sans-serif; color:var(--ink); background:#f0f0f0; font-size:10pt; line-height:1.28; }
+    .sheet { max-width:8.5in; margin:1rem auto; background:#fff; padding:0.45in 0.55in; box-shadow:0 2px 10px rgba(0,0,0,.07); }
+    h1 { margin:0; font-size:14pt; text-transform:uppercase; letter-spacing:.04em; }
+    .contact { font-size:9pt; color:var(--muted); margin:.1rem 0 .45rem; }
+    h2 { margin:0.55rem 0 0.2rem; font-size:10pt; text-transform:uppercase; letter-spacing:.05em; border-bottom:1px solid var(--line); }
+    h3 { margin:.35rem 0 0; font-size:10pt; display:inline; }
+    .meta { font-size:9pt; color:var(--muted); display:inline; }
+    .meta::before { content:" — "; }
+    ul { margin:.1rem 0 .25rem 1rem; padding:0; }
+    li { margin:.08rem 0; }
+    p { margin:.15rem 0; }
+    .toolbar { max-width:8.5in; margin:1rem auto 0; display:flex; gap:.5rem; flex-wrap:wrap; }
+    .toolbar a, .toolbar button { appearance:none; border:0; background:#333; color:#fff; padding:.45rem .8rem; border-radius:4px; font:inherit; font-weight:600; text-decoration:none; cursor:pointer; }
+    .toolbar .ghost { background:#fff; color:#333; border:1px solid #333; }
+    .hint { max-width:8.5in; margin:.5rem auto 1rem; font-size:.8rem; color:#666; }
+    @media print {
+      body { background:#fff; }
+      .toolbar, .hint { display:none !important; }
+      .sheet { margin:0; box-shadow:none; max-width:none; padding:0; }
+      @page { margin:0.4in; size:letter; }
+      a { color:inherit; text-decoration:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button type="button" onclick="window.print()">Print / Save PDF</button>
+    <a class="ghost" href="../index.html">Kit home</a>
+    <a class="ghost" href="classic.html">Classic</a>
+    <a class="ghost" href="modern.html">Modern</a>
+  </div>
+  <p class="hint">Compact one-page bias — denser spacing, still single column. Cut bullets before shrinking fonts further.</p>
+  <article class="sheet">
+    <h1>[Your Full Name]</h1>
+    <p class="contact">[City] | [email] | [phone] | [LinkedIn URL]</p>
+
+    <h2>Summary</h2>
+    <p>[One tight paragraph: target role + proof themes.]</p>
+
+    <h2>Experience</h2>
+    <p><h3>[Title], [Company]</h3><span class="meta">[YYYY–YYYY]</span></p>
+    <ul>
+      <li>[Dense evidence bullet]</li>
+      <li>[Dense evidence bullet]</li>
+      <li>[Dense evidence bullet]</li>
+    </ul>
+    <p><h3>[Title], [Company]</h3><span class="meta">[YYYY–YYYY]</span></p>
+    <ul>
+      <li>[Bullet]</li>
+      <li>[Bullet]</li>
+    </ul>
+    <p><h3>[Title], [Company]</h3><span class="meta">[YYYY–YYYY]</span></p>
+    <ul>
+      <li>[Bullet]</li>
+      <li>[Bullet]</li>
+    </ul>
+
+    <h2>Skills</h2>
+    <p>[A], [B], [C], [D], [E], [F]</p>
+
+    <h2>Education</h2>
+    <p><h3>[Degree], [School]</h3><span class="meta">[YYYY]</span></p>
+  </article>
+</body>
+</html>
