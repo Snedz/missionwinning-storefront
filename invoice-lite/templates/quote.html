@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quote — Invoice Lite</title>
+  <style>
+    :root { --ink:#111; --muted:#555; --line:#d9dde5; --accent:#1a4fff; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#f4f5f7; color:var(--ink); font-family:"Segoe UI",system-ui,sans-serif; }
+    .toolbar { max-width:800px; margin:1rem auto; display:flex; gap:.7rem; flex-wrap:wrap; }
+    button, .toolbar a { border:0; border-radius:8px; padding:.65rem 1rem; background:var(--accent); color:#fff; font:inherit; font-weight:600; text-decoration:none; cursor:pointer; }
+    .toolbar .ghost { color:var(--accent); background:#fff; border:1px solid var(--accent); }
+    .sheet { max-width:800px; margin:1.5rem auto 2rem; background:#fff; padding:2rem 2.25rem; border:1px solid var(--line); box-shadow:0 8px 24px rgba(0,0,0,.06); }
+    header.row { display:flex; justify-content:space-between; gap:1.5rem; align-items:flex-start; }
+    h1 { margin:0; color:var(--accent); font-size:1.75rem; letter-spacing:.05em; text-transform:uppercase; }
+    .muted { color:var(--muted); }
+    .meta { text-align:right; line-height:1.6; }
+    .parties { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin:1.75rem 0 1.25rem; }
+    .box h2 { margin:0 0 .4rem; font-size:.75rem; letter-spacing:.06em; color:var(--muted); text-transform:uppercase; }
+    .box p { margin:0; line-height:1.45; white-space:pre-line; }
+    table { width:100%; border-collapse:collapse; margin-top:1rem; }
+    th, td { padding:.65rem .5rem; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { color:var(--muted); font-size:.75rem; letter-spacing:.05em; text-transform:uppercase; }
+    .num { text-align:right; white-space:nowrap; }
+    .totals { margin-left:auto; width:min(100%,360px); }
+    .totals td { padding:.35rem .5rem; }
+    .due { font-size:1.15rem; font-weight:700; }
+    .terms { margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--line); line-height:1.5; }
+    .disclaimer { max-width:800px; margin:.75rem auto 2rem; color:#777; font-size:.8rem; }
+    @media (max-width:650px) { .sheet { margin:0; padding:1.25rem; } header.row { flex-direction:column; } .meta { text-align:left; } .parties { grid-template-columns:1fr; } }
+    @media print { body { background:#fff; } .toolbar, .disclaimer { display:none !important; } .sheet { margin:0; max-width:none; border:0; box-shadow:none; padding:0; } @page { size:letter; margin:.5in; } }
+  </style>
+<link rel="canonical" href="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/quote.html"/>
+<meta property="og:url" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/quote.html"/>
+<meta property="og:title" content="Quote — Invoice Lite"/>
+<meta property="og:image" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/previews/og-invoice-lite.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="The branded invoice template from the Invoice Lite pack, with an empty logo slot and bracketed fields to replace."/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script src="../utm.js" defer></script>
+</head>
+<body>
+  <div class="toolbar">
+    <button type="button" onclick="window.print()">Print / Save PDF</button>
+    <a class="ghost" href="../index.html">Invoice Lite lander</a>
+  </div>
+  <p class="disclaimer">Template only — not tax, legal, or accounting advice. Replace every placeholder with your own quote terms before sending.</p>
+  <article class="sheet">
+    <header class="row">
+      <div>
+        <h1>Quote</h1>
+        <p class="muted">Your business name<br>city · email · phone</p>
+      </div>
+      <div class="meta">
+        <div><strong>Quote #</strong> Q-0001</div>
+        <div><strong>Issued</strong> YYYY-MM-DD</div>
+        <div><strong>Valid until</strong> YYYY-MM-DD</div>
+      </div>
+    </header>
+    <div class="parties">
+      <div class="box"><h2>Prepared for</h2><p>Client name
+Client company
+Address line
+email@client.com</p></div>
+      <div class="box"><h2>Project</h2><p>Project or service name
+Scope reference: —
+Currency: CAD</p></div>
+    </div>
+    <table>
+      <thead><tr><th>Description</th><th class="num">Qty</th><th class="num">Rate</th><th class="num">Amount</th></tr></thead>
+      <tbody>
+        <tr><td>Example deliverable — replace me</td><td class="num">1</td><td class="num">500.00</td><td class="num">500.00</td></tr>
+        <tr><td>Optional second line</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+      </tbody>
+    </table>
+    <table class="totals">
+      <tr><td>Subtotal</td><td class="num">500.00</td></tr>
+      <tr><td>Tax (if applicable)</td><td class="num">0.00</td></tr>
+      <tr><td class="due">Estimated total</td><td class="num due">500.00</td></tr>
+    </table>
+    <div class="terms">
+      <strong>Terms / next step</strong>
+      <p>Quote is an estimate, not an invoice. Add your scope, assumptions, schedule, deposit, expiry, and acceptance method here. Do not begin work until both sides agree.</p>
+    </div>
+  </article>
+</body>
+</html>

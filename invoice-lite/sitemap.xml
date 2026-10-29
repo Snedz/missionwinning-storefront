@@ -1,21 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/after-paid.html</loc></url>
   <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/before-you-send.html</loc></url>
-  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/client-pause.html</loc></url>
   <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/deposit-first.html</loc></url>
   <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/export-pdf.html</loc></url>
   <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/faq.html</loc></url>
   <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/index.html</loc></url>
-  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/one-pause.html</loc></url>
-  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/one-reminder.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/landing.html</loc></url>
   <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/pricing.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/print-rate-note.html</loc></url>
   <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/print-rate.html</loc></url>
   <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/print-week.html</loc></url>
   <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/rate-floor.html</loc></url>
   <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/refund.html</loc></url>
   <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/scope-in-writing.html</loc></url>
-  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/thanks.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/1099-request-note.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/branded-invoice.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/change-order.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/client-intake.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/collections-handoff.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/credit-note.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/currency-note.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/deposit-invoice.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/dogfood-ACME-sample.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/dogfood-INV-202609-001.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/expense-report.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/kill-fee-note.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/late-fee-clause.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/late-fee-notice.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/mileage-log.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/net-15-terms-snippet.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/net-30-terms-snippet.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/partial-payment-invoice.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/past-due-reminder.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/payment-reminder-soft.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/quote.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/rate-card.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/receipt.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/retainer-invoice.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/scope-change-note.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/simple-invoice.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/statement.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/thank-you-paid.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/timesheet-summary.html</loc></url>
+  <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/w9-request-note.html</loc></url>
   <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/whats-in-the-zip.html</loc></url>
   <url><loc>https://snedz.github.io/missionwinning-storefront/invoice-lite/why-not-google-docs.html</loc></url>
 </urlset>

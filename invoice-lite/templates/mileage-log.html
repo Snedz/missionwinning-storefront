@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mileage log stub — Invoice Lite</title>
+  <style>
+    :root{--ink:#172033;--muted:#5d687d;--line:#d7dce5;--accent:#5b7cfa}*{box-sizing:border-box}
+    body{margin:0;background:#eef1f6;color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+    .sheet{max-width:980px;margin:2rem auto;padding:2.25rem;background:#fff;box-shadow:0 8px 30px #17203318}
+    h1{margin:0;font-size:2rem}h2{font-size:1rem;margin:2rem 0 .5rem;text-transform:uppercase;letter-spacing:.08em}
+    .muted{color:var(--muted)}.notice{background:#f4f7fb;border-left:3px solid var(--accent);padding:.75rem 1rem;margin-bottom:1.5rem}
+    .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0}label{display:block;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+    input,textarea{width:100%;border:1px solid var(--line);border-radius:6px;padding:.45rem;font:inherit;color:var(--ink);background:#fff}input[type=number]{text-align:right}
+    .table-wrap{overflow-x:auto}.log{width:100%;border-collapse:collapse;min-width:760px}.log th,.log td{border:1px solid var(--line);padding:.45rem}.log th{background:#f4f7fb;text-align:left;font-size:.85rem}.log td:last-child,.log th:last-child{text-align:right}.log input{border:0;border-radius:0;padding:.2rem;width:100%}
+    .totals{display:flex;justify-content:flex-end;margin-top:1rem}.totals table{min-width:280px;border-collapse:collapse}.totals td{padding:.3rem .5rem;border-bottom:1px solid var(--line)}.totals td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+    .actions{display:flex;gap:.75rem;margin-top:2rem}.btn{border:0;border-radius:999px;padding:.7rem 1.1rem;background:#172033;color:#fff;font:inherit;cursor:pointer}.btn.secondary{background:#eef1f6;color:var(--ink)}
+    @media(max-width:700px){.sheet{margin:0;padding:1.25rem}.meta{grid-template-columns:1fr}}
+    @media print{body{background:#fff}.sheet{margin:0;max-width:none;box-shadow:none;padding:0}.no-print{display:none!important}input,textarea{border-color:#bbb}@page{margin:.45in;size:letter landscape}}
+  </style>
+<link rel="canonical" href="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/mileage-log.html"/>
+<meta property="og:url" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/mileage-log.html"/>
+<meta property="og:title" content="Mileage log stub — Invoice Lite"/>
+<meta property="og:image" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/previews/og-invoice-lite.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="The branded invoice template from the Invoice Lite pack, with an empty logo slot and bracketed fields to replace."/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script src="../utm.js" defer></script>
+</head>
+<body>
+  <main class="sheet">
+    <div class="no-print notice"><strong>Printable mileage log stub.</strong> Enter only trips you can verify from your own records. This page calculates a planning total locally; it does not submit expenses, create a payment URL, or determine tax eligibility.</div>
+    <h1>Mileage log</h1>
+    <p class="muted">Invoice Lite · manual, verified-details-only worksheet</p>
+    <div class="meta">
+      <div><label for="business">Business / driver</label><input id="business" placeholder="Verified name"></div>
+      <div><label for="period">Period</label><input id="period" placeholder="e.g. September 2026"></div>
+      <div><label for="rate">Planning rate per mile</label><input id="rate" type="number" min="0" step="0.01" value="0" inputmode="decimal"></div>
+    </div>
+    <div class="table-wrap">
+      <table class="log" id="logTable">
+        <thead><tr><th>Date</th><th>Purpose</th><th>Origin</th><th>Destination</th><th>Miles</th><th>Planning amount</th><th class="no-print"></th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="totals"><table><tr><td>Total verified miles</td><td id="milesTotal">0.00</td></tr><tr><td>Planning amount</td><td id="amountTotal">0.00</td></tr></table></div>
+    <h2>Verification notes</h2>
+    <textarea rows="4" placeholder="Add route source, odometer note, client/job reference, or reconciliation detail. Keep receipts and follow the applicable tax rules. This template is not tax advice."></textarea>
+    <p class="muted">Review every row against your records before exporting or sharing. Amounts are a local worksheet calculation only.</p>
+    <div class="actions no-print"><button class="btn" type="button" id="addRow">+ Add trip</button><button class="btn" type="button" onclick="window.print()">Print / Save PDF</button><button class="btn secondary" type="button" onclick="history.back()">Back</button><a class="btn secondary" href="../index.html">Get the full Invoice Lite pack →</a></div>
+  </main>
+  <script>
+    (function(){
+      var body=document.querySelector('#logTable tbody'), rate=document.getElementById('rate');
+      function row(){var tr=document.createElement('tr');tr.innerHTML='<td><input type="date" aria-label="Date"></td><td><input placeholder="Verified purpose" aria-label="Purpose"></td><td><input placeholder="Origin" aria-label="Origin"></td><td><input placeholder="Destination" aria-label="Destination"></td><td><input class="miles" type="number" min="0" step="0.01" value="0" aria-label="Miles"></td><td class="amount">0.00</td><td class="no-print"><button type="button" class="remove">Remove</button></td>';body.appendChild(tr);tr.querySelectorAll('input').forEach(function(el){el.addEventListener('input',render)});tr.querySelector('.remove').addEventListener('click',function(){tr.remove();render()});}
+      function render(){var r=parseFloat(rate.value)||0,miles=0,amount=0;body.querySelectorAll('tr').forEach(function(tr){var m=parseFloat(tr.querySelector('.miles').value)||0,a=m*r;miles+=m;amount+=a;tr.querySelector('.amount').textContent=a.toFixed(2)});document.getElementById('milesTotal').textContent=miles.toFixed(2);document.getElementById('amountTotal').textContent=amount.toFixed(2)}
+      document.getElementById('addRow').addEventListener('click',function(){row();render()});rate.addEventListener('input',render);row();render();
+    }());
+  </script>
+</body>
+</html>

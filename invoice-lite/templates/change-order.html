@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Change order stub — Invoice Lite</title>
+  <style>
+    :root{--ink:#172033;--muted:#5d687d;--line:#d7dce5;--accent:#5b7cfa}*{box-sizing:border-box}
+    body{margin:0;background:#eef1f6;color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+    .sheet{max-width:820px;margin:2rem auto;padding:2.25rem;background:#fff;box-shadow:0 8px 30px #17203318}
+    h1{margin:0;font-size:2rem}h2{font-size:1rem;margin:2rem 0 .5rem;text-transform:uppercase;letter-spacing:.08em}
+    .muted{color:var(--muted)}.meta{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+    label{display:block;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}input,textarea{width:100%;border:0;border-bottom:1px solid var(--line);padding:.4rem 0;font:inherit;color:var(--ink);background:transparent}
+    textarea{border:1px solid var(--line);padding:.5rem;min-height:5rem}.notice{background:#f4f7fb;border-left:3px solid var(--accent);padding:.75rem 1rem;margin-bottom:1.5rem}
+    .callout{border:1px solid var(--line);padding:1rem;margin:1.5rem 0}.actions{display:flex;gap:.75rem;margin-top:2rem}.btn{border:0;border-radius:999px;padding:.7rem 1.1rem;background:#172033;color:#fff;font:inherit;cursor:pointer}.btn.secondary{background:#eef1f6;color:var(--ink)}
+    @media(max-width:650px){.sheet{margin:0;padding:1.25rem}.meta{grid-template-columns:1fr}}
+    @media print{body{background:#fff}.sheet{margin:0;max-width:none;box-shadow:none;padding:0}.no-print{display:none!important}input,textarea{border-color:#bbb}@page{margin:.6in;size:letter}}
+  </style>
+<link rel="canonical" href="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/change-order.html"/>
+<meta property="og:url" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/change-order.html"/>
+<meta property="og:title" content="Change order stub — Invoice Lite"/>
+<meta property="og:image" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/previews/og-invoice-lite.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="The branded invoice template from the Invoice Lite pack, with an empty logo slot and bracketed fields to replace."/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script src="../utm.js" defer></script>
+</head>
+<body>
+  <main class="sheet">
+    <div class="no-print notice"><strong>Printable change-order stub.</strong> Use only after the client and provider record confirm the scope, timing, and price. This page does not collect payment, create a payment URL, or bind either party.</div>
+    <h1>Change order</h1>
+    <p class="muted">Invoice Lite · manual, verified-details-only scope-change template</p>
+    <div class="meta">
+      <div><label for="date">Prepared date</label><input id="date" type="date"></div>
+      <div><label for="number">Change-order number</label><input id="number" placeholder="e.g. CO-0001"></div>
+      <div><label for="from">From</label><textarea id="from" placeholder="Business name and verified contact details"></textarea></div>
+      <div><label for="to">To</label><textarea id="to" placeholder="Customer or project contact"></textarea></div>
+      <div><label for="project">Project / original invoice</label><input id="project" placeholder="Project name or invoice reference"></div>
+      <div><label for="effective">Effective date</label><input id="effective" type="date"></div>
+    </div>
+    <div class="callout">
+      <p><strong>Requested change</strong></p>
+      <textarea id="change" placeholder="Describe the requested scope, deliverable, or timing change using confirmed details."></textarea>
+      <p><strong>Schedule / delivery impact</strong></p>
+      <textarea id="impact" placeholder="Record only the agreed timing or delivery impact."></textarea>
+      <p><strong>Approved price adjustment</strong></p>
+      <input id="amount" placeholder="e.g. CAD 0.00, or No price change">
+    </div>
+    <h2>Approvals and reconciliation notes</h2>
+    <textarea placeholder="Record approval names, dates, the original invoice reference, and any verified ledger/provider note. Do not mark paid here."></textarea>
+    <p class="muted">Template only. Keep the signed or otherwise confirmed agreement with the original invoice. Not legal, tax, or contract advice.</p>
+    <div class="actions no-print"><button class="btn" type="button" onclick="window.print()">Print / Save PDF</button><button class="btn secondary" type="button" onclick="history.back()">Back</button><a class="btn secondary" href="../index.html">Get the full Invoice Lite pack →</a></div>
+  </main>
+</body>
+</html>

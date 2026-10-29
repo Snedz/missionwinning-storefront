@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invoice — Invoice Lite</title>
+  <style>
+    :root { --ink:#111; --muted:#555; --line:#ddd; --accent:#1a4fff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", system-ui, sans-serif; color: var(--ink); background: #f4f5f7; }
+    .sheet { max-width: 800px; margin: 1.5rem auto; background: #fff; padding: 2rem 2.25rem; border: 1px solid var(--line); box-shadow: 0 8px 24px rgba(0,0,0,.06); }
+    header.row { display:flex; justify-content:space-between; gap:1.5rem; align-items:flex-start; }
+    h1 { margin:0; font-size:1.75rem; letter-spacing:.04em; text-transform:uppercase; color:var(--accent); }
+    .meta { text-align:right; font-size:.95rem; color:var(--muted); }
+    .meta strong { color:var(--ink); }
+    .parties { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin:1.75rem 0 1.25rem; }
+    .box h2 { margin:0 0 .4rem; font-size:.75rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+    .box p { margin:0; white-space:pre-line; line-height:1.45; }
+    table { width:100%; border-collapse:collapse; margin-top:1rem; }
+    th, td { padding:.65rem .5rem; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); }
+    td.num, th.num { text-align:right; white-space:nowrap; }
+    tfoot td { border-bottom:none; }
+    .totals { margin-top:.5rem; width:100%; }
+    .totals td { padding:.35rem .5rem; }
+    .totals .due { font-size:1.15rem; font-weight:700; }
+    .notes { margin-top:1.5rem; font-size:.9rem; color:var(--muted); }
+    .toolbar { max-width:800px; margin:1rem auto 0; display:flex; gap:.75rem; flex-wrap:wrap; }
+    .toolbar button, .toolbar a {
+      appearance:none; border:0; cursor:pointer; text-decoration:none;
+      background:var(--accent); color:#fff; font-weight:600; padding:.65rem 1rem; border-radius:8px; font:inherit;
+    }
+    .toolbar .ghost { background:#fff; color:var(--accent); border:1px solid var(--accent); }
+    .disclaimer { max-width:800px; margin:.75rem auto 2rem; font-size:.8rem; color:#777; }
+    @media print {
+      body { background:#fff; }
+      .toolbar, .disclaimer { display:none !important; }
+      .sheet { margin:0; border:0; box-shadow:none; max-width:none; padding:0; }
+      @page { margin: 0.5in; size: letter; }
+    }
+  </style>
+<link rel="canonical" href="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/simple-invoice.html"/>
+<meta property="og:url" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/simple-invoice.html"/>
+<meta property="og:title" content="Invoice — Invoice Lite"/>
+<meta property="og:image" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/previews/og-invoice-lite.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="The branded invoice template from the Invoice Lite pack, with an empty logo slot and bracketed fields to replace."/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script src="../utm.js" defer></script>
+</head>
+<body>
+  <div class="toolbar">
+    <button type="button" onclick="window.print()">Print / Save PDF</button>
+    <a class="ghost" href="../index.html">Invoice Lite lander</a>
+  </div>
+  <p class="disclaimer">Template only — not tax, legal, or accounting advice. Fill your own GST/HST/VAT fields. Inspired by common MIT HTML invoice skeletons (e.g. sparksuite/simple-html-invoice-template); this file is original Program 67 markup.</p>
+
+  <article class="sheet" id="invoice">
+    <header class="row">
+      <div>
+        <h1>Invoice</h1>
+        <p style="margin:.4rem 0 0;color:var(--muted)">Your Business Name<br/>city · email · phone</p>
+      </div>
+      <div class="meta">
+        <div><strong>Invoice #</strong> INV-0001</div>
+        <div><strong>Date</strong> YYYY-MM-DD</div>
+        <div><strong>Due</strong> YYYY-MM-DD · Net 14</div>
+      </div>
+    </header>
+
+    <div class="parties">
+      <div class="box">
+        <h2>Bill to</h2>
+        <p>Client Name
+Client Company
+Address line
+email@client.com</p>
+      </div>
+      <div class="box">
+        <h2>Payment</h2>
+        <p>E-transfer / wire / card link
+Currency: CAD
+Tax ID (if any): —</p>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th class="num">Qty</th>
+          <th class="num">Rate</th>
+          <th class="num">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example deliverable — replace me</td>
+          <td class="num">1</td>
+          <td class="num">500.00</td>
+          <td class="num">500.00</td>
+        </tr>
+        <tr>
+          <td>Optional second line</td>
+          <td class="num">2</td>
+          <td class="num">75.00</td>
+          <td class="num">150.00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="totals">
+      <tr><td style="width:70%"></td><td>Subtotal</td><td class="num">650.00</td></tr>
+      <tr><td></td><td>Tax (GST/HST placeholder)</td><td class="num">0.00</td></tr>
+      <tr><td></td><td class="due">Total due</td><td class="num due">650.00</td></tr>
+    </table>
+
+    <div class="notes">
+      <p><strong>Notes</strong> — Thank you. Late fees (if any) must match your contract. This template invents no balances owed.</p>
+    </div>
+  </article>
+</body>
+</html>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://snedz.github.io/missionwinning-storefront/resume-kit/sitemap.xml
+Sitemap: https://snedz.github.io/missionwinning-storefront/invoice-lite/sitemap.xml

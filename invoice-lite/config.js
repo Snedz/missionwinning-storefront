@@ -5,11 +5,11 @@
 window.INVOICE_LITE = {
   productName: "Invoice Lite PDF Pack",
   priceLabel: "From $9 · one-time",
-  paymentUrl: "https://missionwinning.gumroad.com/l/invoice-lite",
+  paymentUrl: "https://missionwinning.gumroad.com/l/invoice-lite", // Founder: paste a real CHECKOUT link (a product page, not a homepage)
   rail: "", // set by the guard below
   thanksPath: "thanks.html",
   tagline: "From $9 · one-time PDF pack — not agency hours",
-  mailtoWarm: "mailto:snowdenzeng@gmail.com?subject=Invoice%20Lite%20question"
+  mailtoWarm: "mailto:snowdenzeng@gmail.com?subject=Invoice%20Lite%20waitlist" // real inbox — the same address resume-kit/web/lead.html already publishes. Never a placeholder: a visitor's question must reach a person.
 };
 
 /* Rail guard — identical contract to the resume-kit lander, duplicated only because
