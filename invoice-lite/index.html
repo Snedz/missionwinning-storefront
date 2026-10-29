@@ -4,7 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Invoice Lite — one-time PDF pack for solo ops</title>
-  <meta name="description" content="Invoice Lite is a one-time invoice PDF/HTML pack for freelancers and solo ops. Live preview with line items and optional tax. Not agency hours. Not a subscription." />
+  <meta name="description" content="A one-time invoice PDF/HTML pack for freelancers and solo ops. Live preview with line items and optional tax. Not agency hours, not a subscription." />
+  <meta property="og:title" content="Invoice Lite — one-time PDF pack for solo ops" />
+  <meta property="og:description" content="One-time invoice pack for freelancers and solo ops. Live preview, line items, optional tax." />
+  <meta property="og:type" content="website" />
+  <!-- The social card. The file is a real render of the branded invoice in the zip,
+       so a share shows the product and not a mockup of it. -->
+  
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="The branded invoice template from the Invoice Lite pack." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="previews/og-invoice-lite.jpg" />
   <style>
     :root{--bg:#07090f;--card:#121826;--line:rgba(255,255,255,.08);--text:#e8eefc;--muted:#9aa8c7;--accent:#5eead4;--accent2:#7c9cff}
     *{box-sizing:border-box} body{margin:0;font-family:Segoe UI,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
@@ -43,6 +54,13 @@
     .row-actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem}
     .chk{display:flex;align-items:center;gap:.5rem;margin-top:.75rem;color:var(--muted);font-size:.9rem}
     .chk input{width:auto}
+    /* The previews are real screenshots of the files in the zip, not mockups. */
+    .preview-grid{list-style:none;padding:0;margin:2rem 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.1rem}
+    .preview-grid figure{margin:0}
+    .preview-grid img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);background:#fff}
+    .preview-grid figcaption{color:var(--muted);font-size:.85rem;margin-top:.45rem}
+    .preview-demo{display:block;width:100%;max-width:860px;height:auto;margin:1rem auto 0;border-radius:16px;border:1px solid var(--line);background:#fff}
+    .preview-note{color:var(--muted);font-size:.9rem;margin:.75rem 0 0}
     @media print {
       body * { visibility: hidden; }
       #printArea, #printArea * { visibility: visible; }
@@ -59,6 +77,10 @@
       @page { margin: 0.5in; size: letter; }
     }
   </style>
+<link rel="canonical" href="https://snedz.github.io/missionwinning-storefront/invoice-lite/index.html"/>
+<meta property="og:url" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/index.html"/>
+<meta property="og:image" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/previews/og-invoice-lite.jpg"/>
+<script src="utm.js" defer></script>
 </head>
 <body>
   <div class="wrap">
@@ -70,25 +92,25 @@
       <div class="cta-row">
         <a class="btn disabled" id="buyBtn" href="#buy" aria-disabled="true">Buy the pack</a>
         <span class="price" id="priceLabel">From $9 · one-time</span>
-        <a class="btn secondary" href="../templates/simple-invoice.html">Simple template</a>
-        <a class="btn secondary" href="../templates/branded-invoice.html">Branded template</a>
-        <a class="btn secondary" href="../templates/rate-card.html">Printable rate card</a>
-        <a class="btn secondary" href="../templates/receipt.html">Receipt stub</a>
-        <a class="btn secondary" href="../templates/thank-you-paid.html">Thank-you paid letter</a>
-        <a class="btn secondary" href="../templates/statement.html">Statement stub</a>
-        <a class="btn secondary" href="../templates/credit-note.html">Credit-note stub</a>
-        <a class="btn secondary" href="../templates/past-due-reminder.html">Past-due reminder</a>
-        <a class="btn secondary" href="../templates/late-fee-notice.html">Late-fee notice</a>
-        <a class="btn secondary" href="../templates/payment-reminder-soft.html">Soft payment reminder</a>
-        <a class="btn secondary" href="../templates/collections-handoff.html">Collections handoff note</a>
-        <a class="btn secondary" href="../templates/deposit-invoice.html">Deposit invoice</a>
-        <a class="btn secondary" href="../templates/retainer-invoice.html">Retainer invoice</a>
-        <a class="btn secondary" href="../templates/change-order.html">Change order</a>
-        <a class="btn secondary" href="../templates/timesheet-summary.html">Timesheet summary</a>
-        <a class="btn secondary" href="../templates/expense-report.html">Expense report</a>
-        <a class="btn secondary" href="../templates/mileage-log.html">Mileage log</a>
-        <a class="btn secondary" href="../templates/w9-request-note.html">W-9 request note</a>
-        <a class="btn secondary" href="../templates/net-30-terms-snippet.html">Net 30 terms snippet</a>
+        <a class="btn secondary" href="templates/simple-invoice.html">Simple template</a>
+        <a class="btn secondary" href="templates/branded-invoice.html">Branded template</a>
+        <a class="btn secondary" href="templates/rate-card.html">Printable rate card</a>
+        <a class="btn secondary" href="templates/receipt.html">Receipt stub</a>
+        <a class="btn secondary" href="templates/thank-you-paid.html">Thank-you paid letter</a>
+        <a class="btn secondary" href="templates/statement.html">Statement stub</a>
+        <a class="btn secondary" href="templates/credit-note.html">Credit-note stub</a>
+        <a class="btn secondary" href="templates/past-due-reminder.html">Past-due reminder</a>
+        <a class="btn secondary" href="templates/late-fee-notice.html">Late-fee notice</a>
+        <a class="btn secondary" href="templates/payment-reminder-soft.html">Soft payment reminder</a>
+        <a class="btn secondary" href="templates/collections-handoff.html">Collections handoff note</a>
+        <a class="btn secondary" href="templates/deposit-invoice.html">Deposit invoice</a>
+        <a class="btn secondary" href="templates/retainer-invoice.html">Retainer invoice</a>
+        <a class="btn secondary" href="templates/change-order.html">Change order</a>
+        <a class="btn secondary" href="templates/timesheet-summary.html">Timesheet summary</a>
+        <a class="btn secondary" href="templates/expense-report.html">Expense report</a>
+        <a class="btn secondary" href="templates/mileage-log.html">Mileage log</a>
+        <a class="btn secondary" href="templates/w9-request-note.html">W-9 request note</a>
+        <a class="btn secondary" href="templates/net-30-terms-snippet.html">Net 30 terms snippet</a>
       </div>
       <p class="micro" id="buyHint">Checkout stays off until the founder pastes <code>paymentUrl</code> in <code>config.js</code>. No invented waitlist counts.</p>
 
@@ -150,6 +172,54 @@ Client Company</p>
       <div class="card"><strong>Not legal advice</strong><span>Tax/disclaimer stub only — Founder/CPA owns compliance.</span></div>
     </div>
 
+    <section id="previews">
+      <h2>What it actually looks like</h2>
+      <p class="lede">These are screenshots of the actual files in the zip, taken from the
+        HTML you open. Nothing here is a mockup.</p>
+      <ul class="preview-grid">
+        <li><figure>
+          <img src="previews/il-branded.png" width="850" height="1100"
+               alt="The branded invoice template: a dark green header band, an empty logo slot, and an itemised table." loading="lazy" />
+          <figcaption>branded-invoice.html — the dashed box is an empty logo slot, not a logo</figcaption>
+        </figure></li>
+        <li><figure>
+          <img src="previews/il-simple.png" width="850" height="1100"
+               alt="The simple invoice template: one column, a description and amount table, and a total." loading="lazy" />
+          <figcaption>simple-invoice.html — one column, no colour</figcaption>
+        </figure></li>
+        <li><figure>
+          <img src="previews/il-quote.png" width="850" height="1100"
+               alt="The quote template: numbered lines with a rate and an amount, and a total at the bottom." loading="lazy" />
+          <figcaption>quote.html — quote before the invoice</figcaption>
+        </figure></li>
+        <li><figure>
+          <img src="previews/il-receipt.png" width="850" height="1100"
+               alt="The receipt template: a payment received confirmation with an amount and a date." loading="lazy" />
+          <figcaption>receipt.html — for money already received</figcaption>
+        </figure></li>
+        <li><figure>
+          <img src="previews/il-statement.png" width="850" height="1100"
+               alt="The statement template: a list of issued invoices with dates and amounts." loading="lazy" />
+          <figcaption>statement.html — list what you already billed</figcaption>
+        </figure></li>
+        <li><figure>
+          <img src="previews/il-acme.png" width="850" height="1100"
+               alt="The sample invoice for a fictional company, ACME Demo Co, marked as a demo." loading="lazy" />
+          <figcaption>sample-acme-demo.html — a fictional demo invoice. Do not send it.</figcaption>
+        </figure></li>
+      </ul>
+      <h2 style="margin-top:2rem">Thirty seconds, start to finish</h2>
+      <video class="preview-demo" controls preload="none" playsinline
+             poster="previews/il-branded.png">
+        <source src="previews/invoice-lite-demo.mp4" type="video/mp4" />
+        Your browser cannot play this video. The files it shows are the ones in the zip:
+        <a href="previews/il-branded.png">see the branded invoice as a picture</a>.
+      </video>
+      <p class="preview-note">The demo is cut from the same screenshots above, with a
+        narration describing only what the files do. Not accounting software, not payment
+        processing, and not tax or legal advice.</p>
+    </section>
+
     <section id="buy" class="no-print">
       <h2>Buy</h2>
       <p class="lede" style="font-size:1rem">One-time pack from <strong>$9</strong>. You get templates you can edit. No monthly SaaS.</p>
@@ -158,8 +228,8 @@ Client Company</p>
     </section>
 
     <footer class="no-print">
-      <p>Program 67 · invoice-lite · see <code>DOGFOOD_CHECKLIST.md</code> · <code>PRICING.md</code> floor $9 · <a href="../templates/rate-card.html" style="color:var(--accent)">printable rate card</a> · <a href="print-week.html" style="color:var(--accent)">weekly invoice theme</a> · <a href="../templates/statement.html" style="color:var(--accent)">statement stub</a></p>
-      <p><a href="../samples/dogfood-acme.html" style="color:var(--accent)">ACME dogfood sample (fake)</a> · <a href="thanks.html" style="color:var(--accent)">Thanks stub</a> · <a href="../templates/thank-you-paid.html" style="color:var(--accent)">Thank-you paid letter</a> · <a href="../templates/simple-invoice.html" style="color:var(--accent)">Simple</a> · <a href="../templates/branded-invoice.html" style="color:var(--accent)">Branded</a></p>
+      <p>Program 67 · invoice-lite · see <code>DOGFOOD_CHECKLIST.md</code> · <code>PRICING.md</code> floor $9 · <a href="templates/rate-card.html" style="color:var(--accent)">printable rate card</a> · <a href="print-week.html" style="color:var(--accent)">weekly invoice theme</a> · <a href="templates/statement.html" style="color:var(--accent)">statement stub</a></p>
+      <p><a href="templates/dogfood-ACME-sample.html" style="color:var(--accent)">ACME dogfood sample (fake)</a> · <a href="thanks.html" style="color:var(--accent)">Thanks stub</a> · <a href="templates/thank-you-paid.html" style="color:var(--accent)">Thank-you paid letter</a> · <a href="templates/simple-invoice.html" style="color:var(--accent)">Simple</a> · <a href="templates/branded-invoice.html" style="color:var(--accent)">Branded</a></p>
     </footer>
   </div>
   <script src="config.js"></script>

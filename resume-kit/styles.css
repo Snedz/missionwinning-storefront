@@ -74,6 +74,22 @@ h1 { font-size: clamp(2rem, 4.5vw, 3.1rem); line-height: 1.15; margin: 0 0 1rem;
   padding: 1.1rem; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: .4rem;
 }
 .grid-cards span { color: var(--muted); font-size: .95rem; }
+/* The previews are real screenshots of the files in the zip, not mockups. */
+.preview-grid {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.1rem;
+}
+.preview-grid figure { margin: 0; }
+.preview-grid img {
+  display: block; width: 100%; height: auto; border-radius: var(--radius);
+  border: 1px solid var(--line); background: #fff; box-shadow: var(--shadow);
+}
+.preview-grid figcaption { color: var(--muted); font-size: .85rem; margin-top: .45rem; }
+.preview-demo {
+  width: 100%; max-width: 860px; display: block; height: auto; margin: 0 auto;
+  border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); background: #fff;
+}
+.preview-note { color: var(--muted); font-size: .9rem; margin: .75rem 0 0; }
 details {
   background: var(--bg2); border: 1px solid var(--line); border-radius: 12px;
   padding: .9rem 1rem; margin-bottom: .6rem;

@@ -69,7 +69,7 @@
       var emailEl = document.getElementById("email");
       var email = (emailEl && emailEl.value || "").trim();
       if (!email) return;
-      var to = (cfg.mailtoWarm || "mailto:founder@example.com").replace(/^mailto:/, "").split("?")[0];
+      var to = (cfg.mailtoWarm || "mailto:snowdenzeng@gmail.com").replace(/^mailto:/, "").split("?")[0];
       var subject = encodeURIComponent("Resume kit — free checklist request");
       var body = encodeURIComponent(
         "Please send the free ATS checklist.\n\nEmail: " + email + "\n\n(Stub form from resume-kit lander — wire a real endpoint later.)"

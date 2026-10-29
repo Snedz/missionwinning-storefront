@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Expense report stub — Invoice Lite</title>
+  <style>
+    :root{--ink:#172033;--muted:#5d687d;--line:#d7dce5;--accent:#5b7cfa}*{box-sizing:border-box}
+    body{margin:0;background:#eef1f6;color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+    .sheet{max-width:900px;margin:2rem auto;padding:2.25rem;background:#fff;box-shadow:0 8px 30px #17203318}
+    h1{margin:0;font-size:2rem}h2{font-size:1rem;margin:2rem 0 .5rem;text-transform:uppercase;letter-spacing:.08em}
+    .muted{color:var(--muted)}.notice{background:#f4f7fb;border-left:3px solid var(--accent);padding:.75rem 1rem;margin-bottom:1.5rem}
+    .meta{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}label{display:block;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+    input,textarea{width:100%;border:0;border-bottom:1px solid var(--line);padding:.4rem 0;font:inherit;color:var(--ink);background:transparent}textarea{border:1px solid var(--line);padding:.5rem;min-height:4rem}
+    table{width:100%;border-collapse:collapse;margin-top:.75rem}th,td{border-bottom:1px solid var(--line);padding:.6rem .45rem;text-align:left;vertical-align:top}th{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}th.num,td.num{text-align:right}td input{min-width:4.5rem}td:first-child input{min-width:7rem}.totals{margin:1rem 0 0 auto;max-width:22rem}.total{display:flex;justify-content:space-between;gap:2rem;border-bottom:1px solid var(--line);padding:.45rem 0}.total:last-child{font-weight:700;font-size:1.1rem;border-bottom:0}.actions{display:flex;gap:.75rem;margin-top:2rem}.btn{border:0;border-radius:999px;padding:.7rem 1.1rem;background:#172033;color:#fff;font:inherit;cursor:pointer}.btn.secondary{background:#eef1f6;color:var(--ink)}
+    @media(max-width:650px){.sheet{margin:0;padding:1.25rem}.meta{grid-template-columns:1fr}table{font-size:.86rem}th,td{padding:.5rem .25rem}}
+    @media print{body{background:#fff}.sheet{margin:0;max-width:none;box-shadow:none;padding:0}.no-print{display:none!important}input,textarea{border-color:#bbb}@page{margin:.5in;size:letter}}
+  </style>
+<link rel="canonical" href="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/expense-report.html"/>
+<meta property="og:url" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/expense-report.html"/>
+<meta property="og:title" content="Expense report stub — Invoice Lite"/>
+<meta property="og:image" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/previews/og-invoice-lite.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="The branded invoice template from the Invoice Lite pack, with an empty logo slot and bracketed fields to replace."/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script src="../utm.js" defer></script>
+</head>
+<body>
+  <main class="sheet">
+    <div class="no-print notice"><strong>Printable expense-report stub.</strong> Enter only verified receipts, dates, categories, and amounts. This page calculates displayed totals in the browser; it does not connect to a card, bank, accounting system, payroll, tax service, or payment provider.</div>
+    <h1>Expense report</h1>
+    <p class="muted">Invoice Lite · manual, verified-details-only reimbursement summary</p>
+    <div class="meta">
+      <div><label for="reportNo">Report number</label><input id="reportNo" placeholder="e.g. EXP-0001"></div>
+      <div><label for="reportDate">Report date</label><input id="reportDate" type="date"></div>
+      <div><label for="from">Submitted by</label><textarea id="from" placeholder="Name and verified contact details"></textarea></div>
+      <div><label for="to">Company / project</label><textarea id="to" placeholder="Company, project, and verified approver"></textarea></div>
+      <div><label for="period">Expense period</label><input id="period" placeholder="e.g. 2026-09-01 to 2026-09-30"></div>
+      <div><label for="currency">Currency</label><input id="currency" placeholder="e.g. CAD"></div>
+    </div>
+    <h2>Expenses</h2>
+    <table id="expenseTable">
+      <thead><tr><th>Date</th><th>Category / description</th><th>Receipt / reference</th><th class="num">Amount</th></tr></thead>
+      <tbody>
+        <tr><td><input type="date"></td><td><input placeholder="Verified business expense"></td><td><input placeholder="Receipt or reference"></td><td><input class="amount num-input" inputmode="decimal" placeholder="0.00"></td></tr>
+        <tr><td><input type="date"></td><td><input placeholder="Verified business expense"></td><td><input placeholder="Receipt or reference"></td><td><input class="amount num-input" inputmode="decimal" placeholder="0.00"></td></tr>
+        <tr><td><input type="date"></td><td><input placeholder="Verified business expense"></td><td><input placeholder="Receipt or reference"></td><td><input class="amount num-input" inputmode="decimal" placeholder="0.00"></td></tr>
+        <tr><td><input type="date"></td><td><input placeholder="Verified business expense"></td><td><input placeholder="Receipt or reference"></td><td><input class="amount num-input" inputmode="decimal" placeholder="0.00"></td></tr>
+        <tr><td><input type="date"></td><td><input placeholder="Verified business expense"></td><td><input placeholder="Receipt or reference"></td><td><input class="amount num-input" inputmode="decimal" placeholder="0.00"></td></tr>
+      </tbody>
+    </table>
+    <div class="totals"><div class="total"><span>Total expenses shown</span><span id="expenseTotal">0.00</span></div></div>
+    <h2>Review notes</h2>
+    <textarea placeholder="Add only verified business purpose, approval, reimbursement status, or reconciliation notes."></textarea>
+    <p class="muted">Template only. Keep original receipts and approvals. Not tax or legal advice. Confirm treatment with the responsible bookkeeper or tax professional.</p>
+    <div class="actions no-print"><button class="btn" type="button" onclick="window.print()">Print / Save PDF</button><button class="btn secondary" type="button" onclick="history.back()">Back</button><a class="btn secondary" href="../index.html">Get the full Invoice Lite pack →</a></div>
+  </main>
+  <script>
+    (function(){function num(v){var n=parseFloat(String(v||'').replace(/,/g,''));return Number.isFinite(n)?n:0}function money(n){return (Math.round(n*100)/100).toFixed(2)}function render(){var total=0;document.querySelectorAll('.amount').forEach(function(el){total+=num(el.value)});document.getElementById('expenseTotal').textContent=money(total)}document.querySelectorAll('input').forEach(function(el){el.addEventListener('input',render)});render()}());
+  </script>
+</body>
+</html>

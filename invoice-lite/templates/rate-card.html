@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rate Card — Invoice Lite</title>
+  <style>
+    :root{--ink:#0f172a;--muted:#64748b;--line:#dbe3ee;--brand:#0d9488;--soft:#ecfeff}
+    *{box-sizing:border-box} body{margin:0;background:#f1f5f9;color:var(--ink);font-family:"Segoe UI",system-ui,sans-serif}
+    .toolbar{max-width:800px;margin:1rem auto;display:flex;gap:.75rem;flex-wrap:wrap}.toolbar button,.toolbar a{border:0;border-radius:8px;padding:.65rem 1rem;background:var(--brand);color:#fff;font:inherit;font-weight:600;text-decoration:none;cursor:pointer}.toolbar .ghost{background:#fff;color:var(--brand);border:1px solid var(--brand)}
+    .sheet{max-width:800px;margin:1.5rem auto 2rem;background:#fff;padding:2rem 2.25rem;border:1px solid var(--line);box-shadow:0 8px 24px rgba(15,23,42,.06)}
+    header{display:flex;justify-content:space-between;gap:1.25rem;align-items:flex-start;border-bottom:3px solid var(--brand);padding-bottom:1rem}h1{margin:0;color:var(--brand);font-size:1.8rem;letter-spacing:.04em;text-transform:uppercase}.muted{color:var(--muted)}
+    .meta{text-align:right;line-height:1.6}.intro{margin:1.5rem 0;color:#334155}.rate-grid{width:100%;border-collapse:collapse;margin-top:1rem}.rate-grid th,.rate-grid td{border-bottom:1px solid var(--line);padding:.7rem .5rem;text-align:left;vertical-align:top}.rate-grid th{background:var(--soft);color:#115e59;font-size:.75rem;letter-spacing:.05em;text-transform:uppercase}.rate-grid .num{text-align:right;white-space:nowrap}.notes{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.9rem;line-height:1.5}.disclaimer{max-width:800px;margin:.75rem auto 2rem;color:var(--muted);font-size:.8rem}
+    @media(max-width:650px){.sheet{margin:0;padding:1.25rem}header{flex-direction:column}.meta{text-align:left}}
+    @media print{body{background:#fff}.toolbar,.disclaimer{display:none!important}.sheet{margin:0;max-width:none;border:0;box-shadow:none;padding:0}@page{size:letter;margin:.5in}}
+  </style>
+<link rel="canonical" href="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/rate-card.html"/>
+<meta property="og:url" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/rate-card.html"/>
+<meta property="og:title" content="Rate Card — Invoice Lite"/>
+<meta property="og:image" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/previews/og-invoice-lite.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="The branded invoice template from the Invoice Lite pack, with an empty logo slot and bracketed fields to replace."/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script src="../utm.js" defer></script>
+</head>
+<body>
+  <div class="toolbar"><button type="button" onclick="window.print()">Print / Save PDF</button><a class="ghost" href="../index.html">Invoice Lite lander</a></div>
+  <p class="disclaimer">Template only — replace the placeholders with your own scope, currency, and rates. Not tax, legal, or accounting advice. No customer or revenue claim is made here.</p>
+  <article class="sheet">
+    <header><div><h1>Rate card</h1><p class="muted">Your business name<br>city · email · phone</p></div><div class="meta"><strong>Effective</strong><br>YYYY-MM-DD<br><span class="muted">Currency: CAD</span></div></header>
+    <p class="intro">Use this sheet to make a scoped quote before creating an invoice. Confirm the deliverable, quantity, rate basis, taxes, and expiry with the client.</p>
+    <table class="rate-grid"><thead><tr><th>Service / deliverable</th><th>Unit</th><th class="num">Rate</th><th>Notes</th></tr></thead><tbody>
+      <tr><td>Service or deliverable A</td><td>hour / project</td><td class="num">$—</td><td>Define scope and revision limit</td></tr>
+      <tr><td>Service or deliverable B</td><td>hour / project</td><td class="num">$—</td><td>State assumptions and handoff</td></tr>
+      <tr><td>Rush / add-on</td><td>flat / percentage</td><td class="num">$—</td><td>Use only when agreed in writing</td></tr>
+      <tr><td>Minimum engagement</td><td>flat</td><td class="num">$—</td><td>Optional; replace or remove</td></tr>
+    </tbody></table>
+    <div class="notes"><strong>Terms / notes</strong><p>Payment timing, tax treatment, deposit, cancellation, expiry, and acceptance method: ________________________________________________</p><p>Founder gate: paste a real paymentUrl before enabling checkout; this printable card is not a payment processor.</p><p><strong>Why this band.</strong> Each row is an EXAMPLE slot, not market data and not a scraped price list. The reason for a band is the deliverable, the revision limit, and the calendar the seller can actually keep. Real rates are the seller's. This page does not choose a number.</p></div>
+  </article>
+</body>
+</html>

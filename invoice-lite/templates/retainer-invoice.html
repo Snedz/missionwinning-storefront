@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Retainer invoice stub — Invoice Lite</title>
+  <style>
+    :root{--ink:#172033;--muted:#5d687d;--line:#d7dce5;--accent:#5b7cfa}*{box-sizing:border-box}
+    body{margin:0;background:#eef1f6;color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+    .sheet{max-width:820px;margin:2rem auto;padding:2.25rem;background:#fff;box-shadow:0 8px 30px #17203318}
+    h1{margin:0;font-size:2rem}.muted{color:var(--muted)}
+    .meta{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+    label{display:block;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+    input,textarea{width:100%;border:0;border-bottom:1px solid var(--line);padding:.4rem 0;font:inherit;color:var(--ink);background:transparent}
+    textarea{border:1px solid var(--line);padding:.5rem;min-height:4rem}
+    .notice{background:#f4f7fb;border-left:3px solid var(--accent);padding:.75rem 1rem;margin-bottom:1.5rem}
+    .callout{border:1px solid var(--line);padding:1rem;margin:1.5rem 0}.total{display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--line);padding-top:.8rem;font-weight:700}
+    .actions{display:flex;gap:.75rem;margin-top:2rem}.btn{border:0;border-radius:999px;padding:.7rem 1.1rem;background:#172033;color:#fff;font:inherit;cursor:pointer}.btn.secondary{background:#eef1f6;color:var(--ink)}
+    @media(max-width:650px){.sheet{margin:0;padding:1.25rem}.meta{grid-template-columns:1fr}}
+    @media print{body{background:#fff}.sheet{margin:0;max-width:none;box-shadow:none;padding:0}.no-print{display:none!important}input,textarea{border-color:#bbb}@page{margin:.6in;size:letter}}
+  </style>
+<link rel="canonical" href="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/retainer-invoice.html"/>
+<meta property="og:url" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/retainer-invoice.html"/>
+<meta property="og:title" content="Retainer invoice stub — Invoice Lite"/>
+<meta property="og:image" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/previews/og-invoice-lite.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="The branded invoice template from the Invoice Lite pack, with an empty logo slot and bracketed fields to replace."/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script src="../utm.js" defer></script>
+</head>
+<body>
+  <main class="sheet">
+    <div class="no-print notice"><strong>Printable retainer-invoice stub.</strong> Fill this with verified scope, service dates, currency, amount, and agreed terms before sending. This page does not collect payment, create a payment URL, authorize work, or invent a buyer or balance.</div>
+    <h1>Retainer invoice</h1>
+    <p class="muted">Invoice Lite · manual, verified-details-only template</p>
+    <div class="meta">
+      <div><label for="invoiceNo">Invoice number</label><input id="invoiceNo" placeholder="e.g. RET-0001"></div>
+      <div><label for="issueDate">Issue date</label><input id="issueDate" type="date"></div>
+      <div><label for="serviceStart">Service period starts</label><input id="serviceStart" type="date"></div>
+      <div><label for="serviceEnd">Service period ends</label><input id="serviceEnd" type="date"></div>
+      <div><label for="dueDate">Due date</label><input id="dueDate" type="date"></div>
+      <div><label for="currency">Currency</label><input id="currency" placeholder="e.g. CAD"></div>
+      <div><label for="from">From</label><textarea id="from" placeholder="Business name and verified contact details"></textarea></div>
+      <div><label for="to">Bill to</label><textarea id="to" placeholder="Customer or accounts-payable contact"></textarea></div>
+    </div>
+    <h2>Retainer scope</h2>
+    <div class="callout">
+      <label for="project">Project or service</label>
+      <input id="project" placeholder="Describe the verified retainer service">
+      <label for="included" style="margin-top:1rem">Included work or capacity</label>
+      <textarea id="included" placeholder="State the agreed deliverables, hours, response window, rollover rule, and exclusions. Do not add terms that were not agreed."></textarea>
+      <label for="terms" style="margin-top:1rem">Billing terms</label>
+      <textarea id="terms" placeholder="State cadence, renewal or end date, approval contact, cancellation terms, and tax treatment only when verified."></textarea>
+      <div class="meta" style="margin:1rem 0 0">
+        <div><label for="amount">Verified retainer amount</label><input id="amount" inputmode="decimal" placeholder="0.00"></div>
+        <div><label for="reference">Reference</label><input id="reference" placeholder="Agreement, PO, or scope reference"></div>
+      </div>
+      <div class="total"><span>Retainer shown</span><span><span id="currencyPreview">[currency]</span> <span id="amountPreview">0.00</span></span></div>
+    </div>
+    <h2>Payment and reconciliation note</h2>
+    <textarea placeholder="Use the payment method already confirmed with your provider. Record a provider reference only after it exists; do not paste card or bank details here."></textarea>
+    <p class="muted">Template only. Keep the signed agreement, original invoice, and provider confirmation. Not tax, legal, accounting, or collection advice.</p>
+    <div class="actions no-print"><button class="btn" type="button" onclick="window.print()">Print / Save PDF</button><button class="btn secondary" type="button" onclick="history.back()">Back</button><a class="btn secondary" href="../index.html">Get the full Invoice Lite pack →</a></div>
+  </main>
+  <script>
+    (function(){
+      function amount(){var n=parseFloat(String(document.getElementById('amount').value||'').replace(/,/g,''));return Number.isFinite(n)?n:0}
+      function render(){document.getElementById('currencyPreview').textContent=document.getElementById('currency').value.trim()||'[currency]';document.getElementById('amountPreview').textContent=amount().toFixed(2)}
+      document.querySelectorAll('input,textarea').forEach(function(el){el.addEventListener('input',render)});render();
+    }());
+  </script>
+</body>
+</html>

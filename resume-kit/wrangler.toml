@@ -1,0 +1,6 @@
+# Cloudflare Pages config for the resume kit static site (replaces vercel.json).
+# Clean URLs (/faq for faq.html) are Cloudflare Pages' default, so no extra rule is needed.
+# Deploy: npx wrangler pages deploy . --project-name resume-kit  (account/token come from the deployer's env, never this file)
+name = "resume-kit"
+pages_build_output_dir = "."
+compatibility_date = "2026-10-24"

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kill-fee note stub — Invoice Lite</title>
+  <style>
+    :root{--ink:#172033;--muted:#5d687d;--line:#d7dce5;--accent:#8f5b2f}*{box-sizing:border-box}
+    body{margin:0;background:#eef1f6;color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+    .sheet{max-width:820px;margin:2rem auto;padding:2.25rem;background:#fff;box-shadow:0 8px 30px #17203318}
+    h1{margin:0;font-size:2rem}h2{font-size:1rem;margin:2rem 0 .5rem;text-transform:uppercase;letter-spacing:.08em}
+    .muted{color:var(--muted)}.notice{background:#faf3ed;border-left:3px solid var(--accent);padding:.75rem 1rem;margin-bottom:1.5rem}.meta{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+    label{display:block;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}input,textarea{width:100%;border:0;border-bottom:1px solid var(--line);padding:.4rem 0;font:inherit;color:var(--ink);background:transparent}textarea{border:1px solid var(--line);padding:.5rem;min-height:4.5rem}.callout{border:1px solid var(--line);padding:1rem;margin:1.5rem 0}.actions{display:flex;gap:.75rem;margin-top:2rem}.btn{border:0;border-radius:999px;padding:.7rem 1.1rem;background:#172033;color:#fff;font:inherit;cursor:pointer}.btn.secondary{background:#eef1f6;color:var(--ink)}
+    @media(max-width:650px){.sheet{margin:0;padding:1.25rem}.meta{grid-template-columns:1fr}}
+    @media print{body{background:#fff}.sheet{margin:0;max-width:none;box-shadow:none;padding:0}.no-print{display:none!important}input,textarea{border-color:#bbb}@page{margin:.6in;size:letter}}
+  </style>
+<link rel="canonical" href="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/kill-fee-note.html"/>
+<meta property="og:url" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/kill-fee-note.html"/>
+<meta property="og:title" content="Kill-fee note stub — Invoice Lite"/>
+<meta property="og:image" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/previews/og-invoice-lite.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="The branded invoice template from the Invoice Lite pack, with an empty logo slot and bracketed fields to replace."/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script src="../utm.js" defer></script>
+</head>
+<body>
+  <main class="sheet">
+    <div class="no-print notice"><strong>Kill-fee note stub — verify before use.</strong> Editable wording for a cancellation fee that was agreed in writing <em>before</em> work started. Not a contract, not a demand letter, not a payment link, not legal advice. If no written cancellation terms exist, do not invoice a kill fee.</div>
+    <h1>Kill-fee note (cancellation)</h1>
+    <p class="muted">Invoice Lite · neutral note for an agreed, verified cancellation term</p>
+    <div class="meta">
+      <div><label for="date">Note date</label><input id="date" type="date"></div>
+      <div><label for="reference">Project / invoice reference</label><input id="reference" placeholder="e.g. proposal or INV-0001"></div>
+      <div><label for="from">Supplier / sender</label><textarea id="from" placeholder="Verified business name and contact"></textarea></div>
+      <div><label for="to">Client / recipient</label><textarea id="to" placeholder="Verified client name and approved contact"></textarea></div>
+      <div><label for="terms">Written cancellation term (quote it)</label><input id="terms" placeholder="e.g. 25% of project price on cancellation"></div>
+      <div><label for="amount">Verified kill-fee amount</label><input id="amount" placeholder="e.g. CAD 0.00"></div>
+    </div>
+    <div class="callout">
+      <p><strong>Suggested wording</strong></p>
+      <p>Hello <span id="toPreview">[client]</span>,</p>
+      <p>Confirming the cancellation of <span id="referencePreview">[project / invoice reference]</span>. Per the written terms we both agreed to — <span id="termsPreview">[quoted cancellation term]</span> — a cancellation (kill) fee of <span id="amountPreview">[verified amount]</span> applies. A separate invoice will reference this note.</p>
+      <p>Work already delivered to date is itemized in the project record; nothing further will be started. If any detail above differs from your records, please reply through our verified channel so we can reconcile.</p>
+      <p>Thank you,<br><span id="fromPreview">[sender]</span></p>
+    </div>
+    <h2>Internal checklist</h2>
+    <p>☐ Written cancellation terms existed BEFORE work began (quoted exactly above)</p>
+    <p>☐ Amount recalculated from those terms and verified against your records</p>
+    <p>☐ Delivered-work record attached or referenced — no invented line items</p>
+    <p>☐ No threats, no invented late fees, no legal language you can't support</p>
+    <p class="muted">Template only. Not legal, tax, or collection advice. If terms were never agreed in writing, stop and talk to the client instead.</p>
+    <div class="actions no-print"><button class="btn" type="button" onclick="window.print()">Print / Save PDF</button><button class="btn secondary" type="button" onclick="history.back()">Back</button><a class="btn secondary" href="../index.html">Get the full Invoice Lite pack →</a></div>
+  </main>
+  <script>
+    (function(){
+      function value(id,fallback){var el=document.getElementById(id);return el&&el.value.trim()||fallback}
+      function render(){
+        document.getElementById('toPreview').textContent=value('to','[client]').split('\n')[0];
+        document.getElementById('referencePreview').textContent=value('reference','[project / invoice reference]');
+        document.getElementById('termsPreview').textContent=value('terms','[quoted cancellation term]');
+        document.getElementById('amountPreview').textContent=value('amount','[verified amount]');
+        document.getElementById('fromPreview').textContent=value('from','[sender]').split('\n')[0];
+      }
+      document.querySelectorAll('input,textarea').forEach(function(el){el.addEventListener('input',render)});render();
+    }());
+  </script>
+</body>
+</html>

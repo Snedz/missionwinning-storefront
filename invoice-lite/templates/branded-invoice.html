@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Branded Invoice — Invoice Lite</title>
+  <style>
+    :root { --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --brand:#0d9488; --brand-soft:#ccfbf1; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", system-ui, sans-serif; color: var(--ink); background: #f1f5f9; }
+    .sheet { max-width: 800px; margin: 1.5rem auto; background: #fff; padding: 0; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(15,23,42,.08); overflow: hidden; }
+    .brand-bar { background: linear-gradient(135deg, var(--brand), #0f766e); color: #ecfdf5; padding: 1.35rem 2rem; display:flex; justify-content:space-between; gap:1rem; align-items:center; }
+    .logo-slot { width:56px; height:56px; border-radius:12px; background: rgba(255,255,255,.2); border:1px dashed rgba(255,255,255,.55); display:flex; align-items:center; justify-content:center; font-size:.7rem; text-align:center; line-height:1.2; padding:.25rem; }
+    .brand-bar h1 { margin:0; font-size:1.5rem; letter-spacing:.06em; text-transform:uppercase; }
+    .brand-bar .meta { text-align:right; font-size:.9rem; opacity:.95; }
+    .body { padding: 1.75rem 2rem 2rem; }
+    .parties { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.25rem; }
+    .box { background: var(--brand-soft); border-radius:12px; padding:.9rem 1rem; }
+    .box h2 { margin:0 0 .35rem; font-size:.7rem; text-transform:uppercase; letter-spacing:.07em; color:var(--brand); }
+    .box p { margin:0; white-space:pre-line; line-height:1.45; font-size:.95rem; }
+    table { width:100%; border-collapse:collapse; }
+    th, td { padding:.7rem .5rem; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { font-size:.7rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); background:#f8fafc; }
+    td.num, th.num { text-align:right; white-space:nowrap; }
+    .totals { margin-top:.35rem; width:100%; }
+    .totals td { border-bottom:none; padding:.4rem .5rem; }
+    .totals .due { font-size:1.15rem; font-weight:700; color:var(--brand); }
+    .notes { margin-top:1.35rem; font-size:.9rem; color:var(--muted); border-top:1px solid var(--line); padding-top:1rem; }
+    .toolbar { max-width:800px; margin:1rem auto 0; display:flex; gap:.75rem; flex-wrap:wrap; }
+    .toolbar button, .toolbar a {
+      appearance:none; border:0; cursor:pointer; text-decoration:none;
+      background:var(--brand); color:#fff; font-weight:600; padding:.65rem 1rem; border-radius:8px; font:inherit;
+    }
+    .toolbar .ghost { background:#fff; color:var(--brand); border:1px solid var(--brand); }
+    .disclaimer { max-width:800px; margin:.75rem auto 2rem; font-size:.8rem; color:#64748b; }
+    @media print {
+      body { background:#fff; }
+      .toolbar, .disclaimer { display:none !important; }
+      .sheet { margin:0; border:0; box-shadow:none; max-width:none; }
+      @page { margin: 0.45in; size: letter; }
+    }
+  </style>
+<link rel="canonical" href="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/branded-invoice.html"/>
+<meta property="og:url" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/branded-invoice.html"/>
+<meta property="og:title" content="Branded Invoice — Invoice Lite"/>
+<meta property="og:image" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/previews/og-invoice-lite.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="The branded invoice template from the Invoice Lite pack, with an empty logo slot and bracketed fields to replace."/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script src="../utm.js" defer></script>
+</head>
+<body>
+  <div class="toolbar">
+    <button type="button" onclick="window.print()">Print / Save PDF</button>
+    <a class="ghost" href="../index.html">Invoice Lite lander</a>
+    <a class="ghost" href="simple-invoice.html">Simple variant</a>
+  </div>
+  <p class="disclaimer">Branded pack template — replace logo slot + colors. Not tax/legal advice. Floor price for pack: <strong>$9 one-time</strong> (see PRICING.md). paymentUrl is founder-gated.</p>
+
+  <article class="sheet" id="invoice">
+    <header class="brand-bar">
+      <div style="display:flex;gap:1rem;align-items:center">
+        <div class="logo-slot">LOGO<br/>slot</div>
+        <div>
+          <h1>Invoice</h1>
+          <div style="font-size:.9rem;opacity:.9">Your Brand Name · city · email</div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><strong>Invoice #</strong> INV-1001</div>
+        <div><strong>Date</strong> YYYY-MM-DD</div>
+        <div><strong>Due</strong> YYYY-MM-DD · Net 14</div>
+      </div>
+    </header>
+
+    <div class="body">
+      <div class="parties">
+        <div class="box">
+          <h2>Bill to</h2>
+          <p>Client Name
+Client Company
+Address line
+email@client.com</p>
+        </div>
+        <div class="box">
+          <h2>Payment</h2>
+          <p>E-transfer / wire / card link
+Currency: CAD
+Tax ID (if any): —</p>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th class="num">Qty</th>
+            <th class="num">Rate</th>
+            <th class="num">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Brand package deliverable — replace me</td>
+            <td class="num">1</td>
+            <td class="num">750.00</td>
+            <td class="num">750.00</td>
+          </tr>
+          <tr>
+            <td>Optional add-on line</td>
+            <td class="num">3</td>
+            <td class="num">40.00</td>
+            <td class="num">120.00</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="totals">
+        <tr><td style="width:70%"></td><td>Subtotal</td><td class="num">870.00</td></tr>
+        <tr><td></td><td>Tax (optional — HST/GST/VAT)</td><td class="num">0.00</td></tr>
+        <tr><td></td><td class="due">Total due</td><td class="num due">870.00</td></tr>
+      </table>
+
+      <div class="notes">
+        <p><strong>Notes</strong> — Thank you. Late fees (if any) must match your contract. This template invents no balances owed. Colors/logo are placeholders for the paid pack presets.</p>
+      </div>
+    </div>
+  </article>
+</body>
+</html>

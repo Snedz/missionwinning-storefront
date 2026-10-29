@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>1099 request note stub — Invoice Lite</title>
+  <style>
+    :root{--ink:#172033;--muted:#5d687d;--line:#d7dce5;--accent:#8064a2}*{box-sizing:border-box}
+    body{margin:0;background:#eef1f6;color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+    .sheet{max-width:820px;margin:2rem auto;padding:2.25rem;background:#fff;box-shadow:0 8px 30px #17203318}
+    h1{margin:0;font-size:2rem}h2{font-size:1rem;margin:2rem 0 .5rem;text-transform:uppercase;letter-spacing:.08em}
+    .muted{color:var(--muted)}.notice{background:#f4eff9;border-left:3px solid var(--accent);padding:.75rem 1rem;margin-bottom:1.5rem}.meta{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+    label{display:block;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}input,textarea{width:100%;border:0;border-bottom:1px solid var(--line);padding:.4rem 0;font:inherit;color:var(--ink);background:transparent}textarea{border:1px solid var(--line);padding:.5rem;min-height:5rem}.callout{border:1px solid var(--line);padding:1rem;margin:1.5rem 0}.actions{display:flex;gap:.75rem;margin-top:2rem}.btn{border:0;border-radius:999px;padding:.7rem 1.1rem;background:#172033;color:#fff;font:inherit;cursor:pointer}.btn.secondary{background:#eef1f6;color:var(--ink)}
+    @media(max-width:650px){.sheet{margin:0;padding:1.25rem}.meta{grid-template-columns:1fr}}
+    @media print{body{background:#fff}.sheet{margin:0;max-width:none;box-shadow:none;padding:0}.no-print{display:none!important}input,textarea{border-color:#bbb}@page{margin:.6in;size:letter}}
+  </style>
+<link rel="canonical" href="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/1099-request-note.html"/>
+<meta property="og:url" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/1099-request-note.html"/>
+<meta property="og:title" content="1099 request note stub — Invoice Lite"/>
+<meta property="og:image" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/previews/og-invoice-lite.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="The branded invoice template from the Invoice Lite pack, with an empty logo slot and bracketed fields to replace."/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script src="../utm.js" defer></script>
+</head>
+<body>
+  <main class="sheet">
+    <div class="no-print notice"><strong>Request note stub — not a 1099 form.</strong> This page does not issue Form 1099-NEC/1099-MISC, complete any IRS information return, create a payment URL, or provide tax advice. When an information return is actually required, use the official current IRS form and instructions, or ask a qualified tax professional.</div>
+    <h1>Request for year-end information return</h1>
+    <p class="muted">Invoice Lite · neutral request note for a verified payer relationship</p>
+    <div class="meta">
+      <div><label for="date">Request date</label><input id="date" type="date"></div>
+      <div><label for="due">Requested response date</label><input id="due" type="date"></div>
+      <div><label for="from">Requesting freelancer / contact</label><textarea id="from" placeholder="Verified business name and contact channel"></textarea></div>
+      <div><label for="to">Payer / client contact</label><textarea id="to" placeholder="Verified payer name and approved contact details"></textarea></div>
+      <div><label for="reference">Tax year / invoice reference</label><input id="reference" placeholder="e.g. TY 2026 or INV-0001"></div>
+      <div><label for="approved">Approved reply channel</label><input id="approved" placeholder="Existing verified email or portal"></div>
+    </div>
+    <div class="callout">
+      <p><strong>Subject: Request for year-end information return — <span id="referencePreview">[reference]</span></strong></p>
+      <p>Hello <span id="toPreview">[payer]</span>,</p>
+      <p>Our verified records show payments relating to <span id="referencePreview2">[reference]</span> during the year. If an information return (such as Form 1099-NEC) is required for this relationship, please provide my copy through the approved channel above.</p>
+      <p>Please use the official current form and instructions. I have already provided my completed tax-information form through the verified channel; please do not request or send sensitive tax identifiers in an unsecured reply. If no information return is applicable, a short confirmation through the verified channel is appreciated.</p>
+      <p>Thank you,<br><span id="fromPreview">[requesting freelancer]</span></p>
+    </div>
+    <h2>Internal checklist</h2>
+    <p>☐ Payer, relationship, and year/invoice reference were verified against your own records</p>
+    <p>☐ Approved secure channel was confirmed before sending</p>
+    <p>☐ No taxpayer identification number, bank details, or unnecessary sensitive data was entered here</p>
+    <p>☐ Your own income records do not depend on receiving the form — you report verified income either way</p>
+    <p class="muted">Template only. Not Form 1099-NEC/1099-MISC, not an IRS submission, and not tax or legal advice. Do not mark a tax record complete until the responsible owner verifies it.</p>
+    <div class="actions no-print"><button class="btn" type="button" onclick="window.print()">Print / Save PDF</button><button class="btn secondary" type="button" onclick="history.back()">Back</button><a class="btn secondary" href="../index.html">Get the full Invoice Lite pack →</a></div>
+  </main>
+  <script>
+    (function(){
+      function value(id,fallback){var el=document.getElementById(id);return el&&el.value.trim()||fallback}
+      function render(){
+        document.getElementById('referencePreview').textContent=value('reference','[reference]');
+        document.getElementById('referencePreview2').textContent=value('reference','[reference]');
+        document.getElementById('toPreview').textContent=value('to','[payer]').split('\n')[0];
+        document.getElementById('fromPreview').textContent=value('from','[requesting freelancer]').split('\n')[0];
+      }
+      document.querySelectorAll('input,textarea').forEach(function(el){el.addEventListener('input',render)});render();
+    }());
+  </script>
+</body>
+</html>

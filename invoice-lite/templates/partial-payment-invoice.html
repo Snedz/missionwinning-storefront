@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Progress (partial-payment) invoice — Invoice Lite</title>
+  <style>
+    :root{--ink:#172033;--muted:#5d687d;--line:#d7dce5;--accent:#0d9488}*{box-sizing:border-box}
+    body{margin:0;background:#eef1f6;color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+    .sheet{max-width:820px;margin:2rem auto;padding:2.25rem;background:#fff;box-shadow:0 8px 30px #17203318}
+    h1{margin:0;font-size:1.9rem}h2{font-size:1rem;margin:2rem 0 .5rem;text-transform:uppercase;letter-spacing:.08em}
+    .muted{color:var(--muted)}.notice{background:#edf9f7;border-left:3px solid var(--accent);padding:.75rem 1rem;margin-bottom:1.5rem}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+    label{display:block;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+    input,textarea{width:100%;border:0;border-bottom:1px solid var(--line);padding:.4rem 0;font:inherit;color:var(--ink);background:transparent}
+    textarea{border:1px solid var(--line);padding:.5rem;min-height:4.5rem}
+    table{width:100%;border-collapse:collapse;margin-top:1rem}
+    th,td{border-bottom:1px solid var(--line);padding:.5rem;text-align:left;vertical-align:top}
+    th{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+    td.num,th.num{text-align:right;white-space:nowrap}
+    .sum{margin-top:1rem;width:100%}.sum td{padding:.35rem .5rem;border:0}
+    .sum .due{font-weight:700;font-size:1.1rem}
+    .bar{height:10px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin:.5rem 0 1rem}
+    .bar span{display:block;height:100%;background:var(--accent);width:0%}
+    .actions{display:flex;gap:.75rem;margin-top:2rem}
+    .btn{border:0;border-radius:999px;padding:.7rem 1.1rem;background:#172033;color:#fff;font:inherit;cursor:pointer}
+    .btn.secondary{background:#eef1f6;color:var(--ink)}
+    @media(max-width:650px){.sheet{margin:0;padding:1.25rem}.grid{grid-template-columns:1fr}}
+    @media print{body{background:#fff}.sheet{margin:0;max-width:none;box-shadow:none;padding:0}.no-print{display:none!important}
+      input,textarea{border-color:#bbb}tr,.sum{page-break-inside:avoid}@page{margin:.6in;size:letter}}
+  </style>
+<link rel="canonical" href="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/partial-payment-invoice.html"/>
+<meta property="og:url" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/templates/partial-payment-invoice.html"/>
+<meta property="og:title" content="Progress (partial-payment) invoice — Invoice Lite"/>
+<meta property="og:image" content="https://snedz.github.io/missionwinning-storefront/invoice-lite/previews/og-invoice-lite.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="The branded invoice template from the Invoice Lite pack, with an empty logo slot and bracketed fields to replace."/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script src="../utm.js" defer></script>
+</head>
+<body>
+  <main class="sheet">
+    <div class="no-print notice"><strong>Progress-invoice stub.</strong> Uses values you type in — nothing here is calculated from a payment provider, and no payment URL is created. Verify the contract total, every prior invoice, and the remaining balance against your own records before sending. Not a contract, not accounting or legal advice.</div>
+    <h1>Progress invoice</h1>
+    <p class="muted">Invoice Lite · partial payment against a verified contract total</p>
+
+    <div class="grid">
+      <div><label for="biz">From (verified business)</label><textarea id="biz" placeholder="Your business name and contact"></textarea></div>
+      <div><label for="client">Bill to (verified client)</label><textarea id="client" placeholder="Verified client name and contact"></textarea></div>
+      <div><label for="invNum">This invoice number</label><input id="invNum" placeholder="e.g. INV-2026-003" /></div>
+      <div><label for="dates">Issued / due date</label><input id="dates" placeholder="YYYY-MM-DD → YYYY-MM-DD" /></div>
+      <div><label for="contract">Contract total (verified)</label><input id="contract" type="number" step="0.01" placeholder="0.00" /></div>
+      <div><label for="prevInvoiced">Previously invoiced (sum of prior invoices)</label><input id="prevInvoiced" type="number" step="0.01" placeholder="0.00" /></div>
+      <div><label for="milestone">Milestone / % complete claimed</label><input id="milestone" placeholder="e.g. Milestone 2 of 4 — 40% complete" /></div>
+      <div><label for="thisAmount">Amount this invoice</label><input id="thisAmount" type="number" step="0.01" placeholder="0.00" /></div>
+      <div><label for="tax">Tax treatment (your rule)</label><input id="tax" placeholder="e.g. no tax / 13% HST — verify with your accountant" /></div>
+      <div><label for="method">Verified payment method</label><input id="method" placeholder="Existing verified method only" /></div>
+    </div>
+
+    <h2>Claim</h2>
+    <table>
+      <thead><tr><th>Milestone / period</th><th>Basis</th><th class="num">Amount</th></tr></thead>
+      <tbody><tr><td id="pMilestone">[milestone]</td><td>Partial payment of agreed contract total</td><td class="num" id="pThis">0.00</td></tr></tbody>
+    </table>
+
+    <h2>Running position</h2>
+    <table class="sum">
+      <tr><td>Contract total</td><td class="num" id="pContract">0.00</td></tr>
+      <tr><td>Previously invoiced</td><td class="num" id="pPrev">0.00</td></tr>
+      <tr><td>This invoice</td><td class="num" id="pThis2">0.00</td></tr>
+      <tr><td class="due">Remaining after this invoice</td><td class="num due" id="pRemain">0.00</td></tr>
+    </table>
+    <div class="bar"><span id="bar"></span></div>
+    <p class="muted" id="progressText">Progress after this invoice: 0% of the verified contract total.</p>
+
+    <h2>Notes</h2>
+    <p class="muted">This invoice claims partial payment only. Prior invoices remain payable on their own terms and are not credited twice here. If any figure above differs from your records, reply through the verified channel so the position can be reconciled before payment. Not an accounting statement, not tax or legal advice, and no payment link is created by this page.</p>
+    <p class="muted" id="warnOver"></p>
+
+    <div class="actions no-print">
+      <button class="btn" type="button" onclick="window.print()">Print / Save PDF</button>
+      <button class="btn secondary" type="button" onclick="history.back()">Back</button><a class="btn secondary" href="../index.html">Get the full Invoice Lite pack →</a>
+    </div>
+  </main>
+  <script>
+    (function(){
+      function num(id){ var el=document.getElementById(id); var v=parseFloat(el&&el.value||"0"); return isNaN(v)?0:v; }
+      function money(n){ return (Math.round(n*100)/100).toFixed(2); }
+      function val(id,fb){ var el=document.getElementById(id); return el&&el.value.trim()||fb; }
+      function render(){
+        var contract=num('contract'), prev=num('prevInvoiced'), mine=num('thisAmount');
+        document.getElementById('pMilestone').textContent=val('milestone','[milestone]');
+        document.getElementById('pThis').textContent=money(mine);
+        document.getElementById('pThis2').textContent=money(mine);
+        document.getElementById('pContract').textContent=money(contract);
+        document.getElementById('pPrev').textContent=money(prev);
+        document.getElementById('pRemain').textContent=money(contract-prev-mine);
+        var pct=contract>0 ? Math.max(0,Math.min(100,((prev+mine)/contract)*100)) : 0;
+        document.getElementById('bar').style.width=pct.toFixed(1)+'%';
+        document.getElementById('progressText').textContent='Progress after this invoice: '+pct.toFixed(1)+'% of the verified contract total.';
+        var w=document.getElementById('warnOver');
+        if(contract>0 && (prev+mine)>contract+0.005){
+          w.textContent='Check: this invoice plus prior invoices exceeds the contract total by '+money(prev+mine-contract)+'. Fix the figures before sending — do not bill past the agreed total.';
+        } else { w.textContent=''; }
+      }
+      document.querySelectorAll('input,textarea').forEach(function(el){ el.addEventListener('input',render); });
+      render();
+    }());
+  </script>
+</body>
+</html>

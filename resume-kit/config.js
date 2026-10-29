@@ -4,10 +4,10 @@
 window.RESUME_KIT = {
   productName: "ATS Resume Kit",
   priceLabel: "$29 one-time",
-  paymentUrl: "https://missionwinning.gumroad.com/l/resume-kit",
+  paymentUrl: "https://missionwinning.gumroad.com/l/resume-kit", // Founder: paste a real CHECKOUT link (a product page, not a homepage)
   rail: "", // set by the guard below
   tagline: "One-time zip. Not another resume SaaS.",
-  mailtoWarm: "mailto:snowdenzeng@gmail.com?subject=Resume%20kit%20question"
+  mailtoWarm: "mailto:snowdenzeng@gmail.com?subject=Resume%20kit%20question" // real inbox — the same address lead.html already publishes in this product. Never a placeholder: the checklist capture form sends here.
 };
 
 /* Rail guard — self-contained, so there is no second file to load and no wiring step
